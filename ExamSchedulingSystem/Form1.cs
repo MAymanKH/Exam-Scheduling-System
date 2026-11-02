@@ -140,5 +140,11 @@ namespace ExamSchedulingSystem
         private void frmMain_Load(object sender, EventArgs e)
         {
         }
+
+        private void btnStudents_Click_1(object sender, EventArgs e)
+        {
+            StudentsForm studentsForm = new StudentsForm();
+            studentsForm.ShowDialog();
+        }
     }
 }
