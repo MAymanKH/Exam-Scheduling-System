@@ -171,7 +171,6 @@
             btnCourses.Text = "Courses";
             btnCourses.TextAlign = ContentAlignment.MiddleLeft;
             btnCourses.UseVisualStyleBackColor = true;
-            btnCourses.Click += btnCourses_Click_1;
             // 
             // pnlContent
             // 

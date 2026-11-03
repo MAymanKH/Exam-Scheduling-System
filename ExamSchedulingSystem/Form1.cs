@@ -107,7 +107,7 @@ namespace ExamSchedulingSystem
 
         private void btnCourses_Click(object sender, EventArgs e)
         {
-            // OpenPage(new frmCourses(), btnCourses);
+            OpenPage(new CoursesForm(), btnCourses);
         }
 
         private void btnTimetable_Click(object sender, EventArgs e)
@@ -139,12 +139,6 @@ namespace ExamSchedulingSystem
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-        }
-
-        private void btnCourses_Click_1(object sender, EventArgs e)
-        {
-            CoursesForm courses = new CoursesForm();
-            courses.ShowDialog();
         }
     }
 }
