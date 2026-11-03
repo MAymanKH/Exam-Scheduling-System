@@ -117,7 +117,7 @@ namespace ExamSchedulingSystem
 
         private void btnResources_Click(object sender, EventArgs e)
         {
-            // OpenPage(new frmResources(), btnResources);
+            OpenPage(new Resource_Form.ResourcesForm(), btnResources);
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
