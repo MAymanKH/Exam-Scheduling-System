@@ -58,6 +58,7 @@
             label3 = new Label();
             btnGenerateSchedule = new Button();
             label1 = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             pnlSidebar.SuspendLayout();
             pnlContent.SuspendLayout();
             pnlSchedulePreview.SuspendLayout();
@@ -188,6 +189,7 @@
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(938, 677);
             pnlContent.TabIndex = 1;
+            pnlContent.Paint += pnlContent_Paint;
             // 
             // pnlSchedulePreview
             // 
@@ -216,6 +218,7 @@
             dgvSchedulePreview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSchedulePreview.Size = new Size(862, 288);
             dgvSchedulePreview.TabIndex = 12;
+            dgvSchedulePreview.CellContentClick += dgvSchedulePreview_CellContentClick;
             // 
             // colCourse
             // 
@@ -490,5 +493,6 @@
         private DataGridViewTextBoxColumn colDate;
         private DataGridViewTextBoxColumn colTime;
         private DataGridViewTextBoxColumn colHall;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
