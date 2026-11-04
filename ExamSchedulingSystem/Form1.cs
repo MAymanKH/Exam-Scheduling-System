@@ -112,7 +112,7 @@ namespace ExamSchedulingSystem
 
         private void btnTimetable_Click(object sender, EventArgs e)
         {
-            // OpenPage(new frmTimetable(), btnTimetable);
+            OpenPage(new TimetableForm(), btnTimetable);
         }
 
         private void btnResources_Click(object sender, EventArgs e)
