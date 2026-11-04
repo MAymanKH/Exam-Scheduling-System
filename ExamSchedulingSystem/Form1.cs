@@ -119,26 +119,5 @@ namespace ExamSchedulingSystem
         {
             OpenPage(new Resource_Form.ResourcesForm(), btnResources);
         }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnGenerateSchedule_Click(object sender, EventArgs e)
-        {
-            // Add the scheduling code here later
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-        }
     }
 }

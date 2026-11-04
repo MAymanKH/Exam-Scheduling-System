@@ -93,7 +93,6 @@
             lblTitle.Size = new Size(215, 37);
             lblTitle.TabIndex = 5;
             lblTitle.Text = "Exam Scheduler";
-            lblTitle.Click += lblTitle_Click;
             // 
             // btnTimetable
             // 
@@ -381,7 +380,6 @@
             label2.Size = new Size(40, 46);
             label2.TabIndex = 10;
             label2.Text = "0";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -393,7 +391,6 @@
             label3.Size = new Size(165, 32);
             label3.TabIndex = 9;
             label3.Text = "Total Students";
-            label3.Click += label3_Click;
             // 
             // btnGenerateSchedule
             // 
@@ -409,7 +406,6 @@
             btnGenerateSchedule.TabIndex = 7;
             btnGenerateSchedule.Text = "Generate Schedule";
             btnGenerateSchedule.UseVisualStyleBackColor = false;
-            btnGenerateSchedule.Click += btnGenerateSchedule_Click;
             // 
             // label1
             // 
@@ -433,7 +429,6 @@
             Font = new Font("Segoe UI", 10F);
             Name = "frmMain";
             Text = "Exam Scheduling System";
-            Load += frmMain_Load;
             pnlSidebar.ResumeLayout(false);
             pnlSidebar.PerformLayout();
             pnlContent.ResumeLayout(false);
