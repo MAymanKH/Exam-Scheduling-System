@@ -1,4 +1,5 @@
 
+using Resource_Form;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -117,7 +118,7 @@ namespace ExamSchedulingSystem
 
         private void btnResources_Click(object sender, EventArgs e)
         {
-            // OpenPage(new frmResources(), btnResources);
+             OpenPage(new ResourcesForm(), btnResources);
         }
 
         private void lblTitle_Click(object sender, EventArgs e)

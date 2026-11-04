@@ -1,3 +1,7 @@
+
+using System;
+using System.Windows.Forms;
+
 namespace Resource_Form
 {
     public partial class ResourcesForm : Form
@@ -6,19 +10,22 @@ namespace Resource_Form
         {
             InitializeComponent();
 
-            // Setup Rooms Table
+            // Rooms Table
+            dgvRooms.Columns.Clear();
             dgvRooms.Columns.Add("RoomName", "Room Name");
             dgvRooms.Columns.Add("Capacity", "Capacity");
 
-            // Setup Time Slots Table
+            // Time Slots Table
+            dgvSlots.Columns.Clear();
             dgvSlots.Columns.Add("Date", "Date");
             dgvSlots.Columns.Add("StartTime", "Start Time");
             dgvSlots.Columns.Add("EndTime", "End Time");
 
-            // Setup Unavailability Table
-            dgvUnavailable.Columns.Add("Room", "Room");
-            dgvUnavailable.Columns.Add("Date", "Date");
-            dgvUnavailable.Columns.Add("Slot", "Slot");
+            // Unavailability Table
+            dataGridView1.Columns.Clear();
+            dataGridView1.Columns.Add("Room", "Room");
+            dataGridView1.Columns.Add("Date", "Date");
+            dataGridView1.Columns.Add("Slot", "Slot");
 
             // Time Format
             dtpStartTime.Format = DateTimePickerFormat.Custom;
@@ -29,7 +36,6 @@ namespace Resource_Form
             dtpEndTime.CustomFormat = "hh:mm tt";
             dtpEndTime.ShowUpDown = true;
 
-            // Default Time
             dtpStartTime.Value = DateTime.Today.AddHours(9);
             dtpEndTime.Value = DateTime.Today.AddHours(11);
 
@@ -40,19 +46,16 @@ namespace Resource_Form
             btnAddSlot.Click += btnAddSlot_Click;
             btnRemoveSlot.Click += btnRemoveSlot_Click;
 
-            btnMarkUnavailable.Click += btnMarkUnavailable_Click;
-            btnRestoreAvailability.Click += btnRestoreAvailability_Click;
+            button2.Click += btnMarkUnavailable_Click;
+            button1.Click += btnRestoreAvailability_Click;
 
-            cmbDates.SelectedIndexChanged += cmbDates_SelectedIndexChanged;
+            comboBox2.SelectedIndexChanged +=
+                cmbDates_SelectedIndexChanged;
         }
 
         // =========================
         // ROOMS
         // =========================
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Empty for now
-        }
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
@@ -62,7 +65,8 @@ namespace Resource_Form
                 return;
             }
 
-            if (!int.TryParse(txtCapacity.Text, out int capacity) || capacity <= 0)
+            if (!int.TryParse(txtCapacity.Text, out int capacity)
+                || capacity <= 0)
             {
                 MessageBox.Show("Enter a valid capacity");
                 return;
@@ -70,7 +74,7 @@ namespace Resource_Form
 
             dgvRooms.Rows.Add(txtRoomName.Text, capacity);
 
-            cmbRooms.Items.Add(txtRoomName.Text);
+            comboBox1.Items.Add(txtRoomName.Text);
 
             txtRoomName.Clear();
             txtCapacity.Clear();
@@ -85,7 +89,7 @@ namespace Resource_Form
 
                 dgvRooms.Rows.Remove(dgvRooms.SelectedRows[0]);
 
-                cmbRooms.Items.Remove(roomName);
+                comboBox1.Items.Remove(roomName);
             }
             else
             {
@@ -104,11 +108,24 @@ namespace Resource_Form
             string start = dtpStartTime.Value.ToString("hh:mm tt");
             string end = dtpEndTime.Value.ToString("hh:mm tt");
 
-            dgvSlots.Rows.Add(date.ToShortDateString(), start, end);
-
-            if (!cmbDates.Items.Contains(date.ToShortDateString()))
+            if (dtpEndTime.Value.TimeOfDay <=
+                dtpStartTime.Value.TimeOfDay)
             {
-                cmbDates.Items.Add(date.ToShortDateString());
+                MessageBox.Show("End time must be after start time");
+                return;
+            }
+
+            dgvSlots.Rows.Add(
+                date.ToString("dd/MM/yyyy"),
+                start,
+                end
+            );
+
+            string dateText = date.ToString("dd/MM/yyyy");
+
+            if (!comboBox2.Items.Contains(dateText))
+            {
+                comboBox2.Items.Add(dateText);
             }
         }
 
@@ -128,11 +145,12 @@ namespace Resource_Form
         // ROOM UNAVAILABILITY
         // =========================
 
-        private void cmbDates_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbDates_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
-            cmbSlots.Items.Clear();
+            comboBox3.Items.Clear();
 
-            string selectedDate = cmbDates.Text;
+            string selectedDate = comboBox2.Text;
 
             foreach (DataGridViewRow row in dgvSlots.Rows)
             {
@@ -141,34 +159,36 @@ namespace Resource_Form
                     string slot =
                         row.Cells[1].Value + " - " + row.Cells[2].Value;
 
-                    cmbSlots.Items.Add(slot);
+                    comboBox3.Items.Add(slot);
                 }
             }
         }
 
-        private void btnMarkUnavailable_Click(object sender, EventArgs e)
+        private void btnMarkUnavailable_Click(
+            object sender, EventArgs e)
         {
-            if (cmbRooms.Text == "" ||
-                cmbDates.Text == "" ||
-                cmbSlots.Text == "")
+            if (comboBox1.Text == "" ||
+                comboBox2.Text == "" ||
+                comboBox3.Text == "")
             {
                 MessageBox.Show("Select Room, Date and Slot");
                 return;
             }
 
-            dgvUnavailable.Rows.Add(
-                cmbRooms.Text,
-                cmbDates.Text,
-                cmbSlots.Text
+            dataGridView1.Rows.Add(
+                comboBox1.Text,
+                comboBox2.Text,
+                comboBox3.Text
             );
         }
 
-        private void btnRestoreAvailability_Click(object sender, EventArgs e)
+        private void btnRestoreAvailability_Click(
+            object sender, EventArgs e)
         {
-            if (dgvUnavailable.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                dgvUnavailable.Rows.Remove(
-                    dgvUnavailable.SelectedRows[0]
+                dataGridView1.Rows.Remove(
+                    dataGridView1.SelectedRows[0]
                 );
             }
             else
@@ -176,15 +196,19 @@ namespace Resource_Form
                 MessageBox.Show("Select a record first");
             }
         }
-
-        private void dgvUnavailable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvRooms_CellContentClick( object sender, DataGridViewCellEventArgs e)
         {
-
+            //empty for now
         }
-
-        private void dgvRooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick( object sender, DataGridViewCellEventArgs e)
         {
-
+            //empty for now
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Empty for now
         }
     }
+
+
 }
