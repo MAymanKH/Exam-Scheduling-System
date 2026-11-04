@@ -102,8 +102,7 @@ namespace ExamSchedulingSystem
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            StudentsForm studentsForm = new StudentsForm();
-            studentsForm.Show();
+            OpenPage(new StudentsForm(), btnStudents);
         }
 
         private void btnCourses_Click(object sender, EventArgs e)
@@ -140,11 +139,6 @@ namespace ExamSchedulingSystem
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-        }
-
-        private void dgvSchedulePreview_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
