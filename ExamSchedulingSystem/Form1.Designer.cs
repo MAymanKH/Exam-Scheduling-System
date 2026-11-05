@@ -90,7 +90,7 @@
             lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(3, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(215, 37);
+            lblTitle.Size = new Size(262, 45);
             lblTitle.TabIndex = 5;
             lblTitle.Text = "Exam Scheduler";
             lblTitle.Click += lblTitle_Click;
@@ -207,10 +207,12 @@
             dgvSchedulePreview.BorderStyle = BorderStyle.None;
             dgvSchedulePreview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSchedulePreview.Columns.AddRange(new DataGridViewColumn[] { colCourse, colDate, colTime, colHall });
+            dgvSchedulePreview.GridColor = Color.DarkOliveGreen;
             dgvSchedulePreview.Location = new Point(15, 97);
             dgvSchedulePreview.Name = "dgvSchedulePreview";
             dgvSchedulePreview.ReadOnly = true;
             dgvSchedulePreview.RowHeadersVisible = false;
+            dgvSchedulePreview.RowHeadersWidth = 51;
             dgvSchedulePreview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSchedulePreview.Size = new Size(862, 288);
             dgvSchedulePreview.TabIndex = 12;
@@ -218,24 +220,28 @@
             // colCourse
             // 
             colCourse.HeaderText = "Course";
+            colCourse.MinimumWidth = 6;
             colCourse.Name = "colCourse";
             colCourse.ReadOnly = true;
             // 
             // colDate
             // 
             colDate.HeaderText = "Date";
+            colDate.MinimumWidth = 6;
             colDate.Name = "colDate";
             colDate.ReadOnly = true;
             // 
             // colTime
             // 
             colTime.HeaderText = "Time";
+            colTime.MinimumWidth = 6;
             colTime.Name = "colTime";
             colTime.ReadOnly = true;
             // 
             // colHall
             // 
             colHall.HeaderText = "Hall";
+            colHall.MinimumWidth = 6;
             colHall.Name = "colHall";
             colHall.ReadOnly = true;
             // 
@@ -261,7 +267,7 @@
             lblScheduleTitle.ForeColor = Color.White;
             lblScheduleTitle.Location = new Point(15, 21);
             lblScheduleTitle.Name = "lblScheduleTitle";
-            lblScheduleTitle.Size = new Size(205, 37);
+            lblScheduleTitle.Size = new Size(256, 46);
             lblScheduleTitle.TabIndex = 10;
             lblScheduleTitle.Text = "Exam Timetable";
             // 
@@ -282,7 +288,7 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(85, 50);
             label6.Name = "label6";
-            label6.Size = new Size(40, 46);
+            label6.Size = new Size(49, 57);
             label6.TabIndex = 10;
             label6.Text = "0";
             // 
@@ -293,7 +299,7 @@
             label7.ForeColor = Color.White;
             label7.Location = new Point(4, 9);
             label7.Name = "label7";
-            label7.Size = new Size(164, 32);
+            label7.Size = new Size(203, 41);
             label7.TabIndex = 9;
             label7.Text = "Total Conflicts";
             // 
@@ -314,7 +320,7 @@
             label8.ForeColor = Color.White;
             label8.Location = new Point(87, 50);
             label8.Name = "label8";
-            label8.Size = new Size(40, 46);
+            label8.Size = new Size(49, 57);
             label8.TabIndex = 10;
             label8.Text = "0";
             // 
@@ -325,7 +331,7 @@
             label9.ForeColor = Color.White;
             label9.Location = new Point(4, 9);
             label9.Name = "label9";
-            label9.Size = new Size(123, 32);
+            label9.Size = new Size(152, 41);
             label9.TabIndex = 9;
             label9.Text = "Total Halls";
             // 
@@ -346,7 +352,7 @@
             label4.ForeColor = Color.White;
             label4.Location = new Point(87, 50);
             label4.Name = "label4";
-            label4.Size = new Size(40, 46);
+            label4.Size = new Size(49, 57);
             label4.TabIndex = 10;
             label4.Text = "0";
             // 
@@ -357,7 +363,7 @@
             label5.ForeColor = Color.White;
             label5.Location = new Point(4, 9);
             label5.Name = "label5";
-            label5.Size = new Size(174, 37);
+            label5.Size = new Size(219, 46);
             label5.TabIndex = 9;
             label5.Text = "Total Courses";
             // 
@@ -378,7 +384,7 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(82, 50);
             label2.Name = "label2";
-            label2.Size = new Size(40, 46);
+            label2.Size = new Size(49, 57);
             label2.TabIndex = 10;
             label2.Text = "0";
             label2.Click += label2_Click;
@@ -390,7 +396,7 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(4, 9);
             label3.Name = "label3";
-            label3.Size = new Size(165, 32);
+            label3.Size = new Size(205, 41);
             label3.TabIndex = 9;
             label3.Text = "Total Students";
             label3.Click += label3_Click;
@@ -418,13 +424,13 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(19, 20);
             label1.Name = "label1";
-            label1.Size = new Size(149, 37);
+            label1.Size = new Size(182, 45);
             label1.TabIndex = 6;
             label1.Text = "Dashboard";
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 23, 42);
             ClientSize = new Size(1158, 677);
