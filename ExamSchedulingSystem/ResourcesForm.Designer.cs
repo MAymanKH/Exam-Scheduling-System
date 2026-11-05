@@ -46,16 +46,6 @@
             lblEndTime = new Label();
             lblStartTime = new Label();
             lblExamDate = new Label();
-            grpAvailability = new GroupBox();
-            dgvUnavailable = new DataGridView();
-            btnMarkUnavailable = new Button();
-            btnRestoreAvailability = new Button();
-            cmbRooms = new ComboBox();
-            cmbDates = new ComboBox();
-            cmbSlots = new ComboBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
             button1 = new Button();
@@ -66,36 +56,12 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            groupBox2 = new GroupBox();
-            dataGridView2 = new DataGridView();
-            button3 = new Button();
-            button4 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            groupBox3 = new GroupBox();
-            dataGridView3 = new DataGridView();
-            button5 = new Button();
-            button6 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label10 = new Label();
-            label11 = new Label();
             grbRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
             grpTimeSlots.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSlots).BeginInit();
-            grpAvailability.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUnavailable).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
             // grbRooms
@@ -110,7 +76,7 @@
             grbRooms.ForeColor = Color.White;
             grbRooms.Location = new Point(10, 10);
             grbRooms.Name = "grbRooms";
-            grbRooms.Size = new Size(509, 180);
+            grbRooms.Size = new Size(761, 180);
             grbRooms.TabIndex = 0;
             grbRooms.TabStop = false;
             grbRooms.Text = "Rooms Mangement";
@@ -119,7 +85,7 @@
             // 
             dgvRooms.AllowUserToAddRows = false;
             dgvRooms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvRooms.BackgroundColor = Color.FromArgb(17, 24, 39);
+            dgvRooms.BackgroundColor = Color.FromArgb(30, 41, 59);
             dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRooms.Location = new Point(14, 97);
             dgvRooms.Name = "dgvRooms";
@@ -200,7 +166,7 @@
             grpTimeSlots.ForeColor = Color.White;
             grpTimeSlots.Location = new Point(10, 196);
             grpTimeSlots.Name = "grpTimeSlots";
-            grpTimeSlots.Size = new Size(509, 198);
+            grpTimeSlots.Size = new Size(761, 198);
             grpTimeSlots.TabIndex = 1;
             grpTimeSlots.TabStop = false;
             grpTimeSlots.Text = "Dates & Time Slots";
@@ -208,7 +174,7 @@
             // dgvSlots
             // 
             dgvSlots.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSlots.BackgroundColor = Color.FromArgb(17, 24, 39);
+            dgvSlots.BackgroundColor = Color.FromArgb(30, 41, 59);
             dgvSlots.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSlots.Location = new Point(14, 115);
             dgvSlots.Name = "dgvSlots";
@@ -296,120 +262,6 @@
             lblExamDate.TabIndex = 0;
             lblExamDate.Text = "Exam Date";
             // 
-            // grpAvailability
-            // 
-            grpAvailability.Controls.Add(groupBox1);
-            grpAvailability.Controls.Add(groupBox2);
-            grpAvailability.Controls.Add(groupBox3);
-            grpAvailability.Controls.Add(dgvUnavailable);
-            grpAvailability.Controls.Add(btnMarkUnavailable);
-            grpAvailability.Controls.Add(btnRestoreAvailability);
-            grpAvailability.Controls.Add(cmbRooms);
-            grpAvailability.Controls.Add(cmbDates);
-            grpAvailability.Controls.Add(cmbSlots);
-            grpAvailability.Controls.Add(label3);
-            grpAvailability.Controls.Add(label2);
-            grpAvailability.Controls.Add(label1);
-            grpAvailability.ForeColor = Color.White;
-            grpAvailability.Location = new Point(12, 400);
-            grpAvailability.Name = "grpAvailability";
-            grpAvailability.Size = new Size(509, 210);
-            grpAvailability.TabIndex = 2;
-            grpAvailability.TabStop = false;
-            grpAvailability.Text = "Room Unavailability";
-            // 
-            // dgvUnavailable
-            // 
-            dgvUnavailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUnavailable.BackgroundColor = Color.FromArgb(17, 24, 39);
-            dgvUnavailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUnavailable.GridColor = SystemColors.InactiveBorder;
-            dgvUnavailable.Location = new Point(12, 127);
-            dgvUnavailable.Name = "dgvUnavailable";
-            dgvUnavailable.ReadOnly = true;
-            dgvUnavailable.RowHeadersWidth = 51;
-            dgvUnavailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUnavailable.Size = new Size(440, 77);
-            dgvUnavailable.TabIndex = 8;
-            dgvUnavailable.CellContentClick += dgvUnavailable_CellContentClick;
-            // 
-            // btnMarkUnavailable
-            // 
-            btnMarkUnavailable.BackColor = Color.FromArgb(79, 70, 229);
-            btnMarkUnavailable.Location = new Point(245, 80);
-            btnMarkUnavailable.Name = "btnMarkUnavailable";
-            btnMarkUnavailable.Size = new Size(207, 29);
-            btnMarkUnavailable.TabIndex = 7;
-            btnMarkUnavailable.Text = "Mark Room as Unavailable";
-            btnMarkUnavailable.UseVisualStyleBackColor = false;
-            // 
-            // btnRestoreAvailability
-            // 
-            btnRestoreAvailability.BackColor = Color.FromArgb(79, 70, 229);
-            btnRestoreAvailability.Location = new Point(83, 80);
-            btnRestoreAvailability.Name = "btnRestoreAvailability";
-            btnRestoreAvailability.Size = new Size(156, 29);
-            btnRestoreAvailability.TabIndex = 6;
-            btnRestoreAvailability.Text = "Restore Availabale";
-            btnRestoreAvailability.UseVisualStyleBackColor = false;
-            // 
-            // cmbRooms
-            // 
-            cmbRooms.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbRooms.FormattingEnabled = true;
-            cmbRooms.Location = new Point(10, 46);
-            cmbRooms.Name = "cmbRooms";
-            cmbRooms.Size = new Size(151, 28);
-            cmbRooms.TabIndex = 5;
-            // 
-            // cmbDates
-            // 
-            cmbDates.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbDates.FormattingEnabled = true;
-            cmbDates.Location = new Point(179, 46);
-            cmbDates.Name = "cmbDates";
-            cmbDates.Size = new Size(151, 28);
-            cmbDates.TabIndex = 4;
-            // 
-            // cmbSlots
-            // 
-            cmbSlots.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbSlots.FormattingEnabled = true;
-            cmbSlots.Location = new Point(347, 46);
-            cmbSlots.Name = "cmbSlots";
-            cmbSlots.Size = new Size(151, 28);
-            cmbSlots.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(347, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 20);
-            label3.TabIndex = 2;
-            label3.Text = " Select Slot";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(179, 23);
-            label2.Name = "label2";
-            label2.Size = new Size(85, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Select Date";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(10, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(93, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Select Room";
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView1);
@@ -422,9 +274,9 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
             groupBox1.ForeColor = SystemColors.ButtonFace;
-            groupBox1.Location = new Point(0, 192);
+            groupBox1.Location = new Point(10, 400);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(509, 198);
+            groupBox1.Size = new Size(761, 227);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Room Unavailability";
@@ -434,12 +286,12 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(30, 41, 59);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(2, 115);
+            dataGridView1.Location = new Point(14, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(438, 77);
+            dataGridView1.Size = new Size(440, 77);
             dataGridView1.TabIndex = 8;
             // 
             // button1
@@ -516,206 +368,14 @@
             label6.TabIndex = 0;
             label6.Text = "Select Room";
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(dataGridView2);
-            groupBox2.Controls.Add(button3);
-            groupBox2.Controls.Add(button4);
-            groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Controls.Add(dateTimePicker2);
-            groupBox2.Controls.Add(dateTimePicker3);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(label9);
-            groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(0, -10);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(509, 196);
-            groupBox2.TabIndex = 10;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Dates & Time Slots";
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.BackgroundColor = Color.FromArgb(30, 41, 59);
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(2, 108);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.ReadOnly = true;
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(438, 77);
-            dataGridView2.TabIndex = 8;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(79, 70, 229);
-            button3.Location = new Point(246, 73);
-            button3.Name = "button3";
-            button3.Size = new Size(171, 29);
-            button3.TabIndex = 7;
-            button3.Text = "Remove Selected Slot";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(79, 70, 229);
-            button4.Location = new Point(76, 73);
-            button4.Name = "button4";
-            button4.Size = new Size(163, 29);
-            button4.TabIndex = 6;
-            button4.Text = "Add Date & Slot";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CalendarForeColor = Color.BlanchedAlmond;
-            dateTimePicker1.CustomFormat = "hh:mm tt";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(336, 40);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.ShowUpDown = true;
-            dateTimePicker1.Size = new Size(127, 27);
-            dateTimePicker1.TabIndex = 5;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.CustomFormat = "hh:mm tt";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(192, 40);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.ShowUpDown = true;
-            dateTimePicker2.Size = new Size(127, 27);
-            dateTimePicker2.TabIndex = 4;
-            // 
-            // dateTimePicker3
-            // 
-            dateTimePicker3.Format = DateTimePickerFormat.Short;
-            dateTimePicker3.Location = new Point(10, 40);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(162, 27);
-            dateTimePicker3.TabIndex = 3;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(336, 17);
-            label7.Name = "label7";
-            label7.Size = new Size(71, 20);
-            label7.TabIndex = 2;
-            label7.Text = "End Time";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(192, 17);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 20);
-            label8.TabIndex = 1;
-            label8.Text = "Start Time";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(10, 17);
-            label9.Name = "label9";
-            label9.Size = new Size(81, 20);
-            label9.TabIndex = 0;
-            label9.Text = "Exam Date";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(dataGridView3);
-            groupBox3.Controls.Add(button5);
-            groupBox3.Controls.Add(button6);
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(textBox2);
-            groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(label11);
-            groupBox3.ForeColor = SystemColors.Control;
-            groupBox3.Location = new Point(0, -180);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(509, 180);
-            groupBox3.TabIndex = 9;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Rooms Mangement";
-            // 
-            // dataGridView3
-            // 
-            dataGridView3.AllowUserToAddRows = false;
-            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView3.BackgroundColor = Color.FromArgb(30, 41, 59);
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(0, 87);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.ReadOnly = true;
-            dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.Size = new Size(440, 77);
-            dataGridView3.TabIndex = 6;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.FromArgb(79, 70, 229);
-            button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(310, 39);
-            button5.Name = "button5";
-            button5.Size = new Size(125, 27);
-            button5.TabIndex = 5;
-            button5.Text = "Remove Selected Room";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(79, 70, 229);
-            button6.Location = new Point(230, 39);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 27);
-            button6.TabIndex = 4;
-            button6.Text = "Add Room";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(145, 40);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(75, 27);
-            textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(10, 40);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 2;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(145, 20);
-            label10.Name = "label10";
-            label10.Size = new Size(66, 20);
-            label10.TabIndex = 1;
-            label10.Text = "Capacity";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(10, 20);
-            label11.Name = "label11";
-            label11.Size = new Size(93, 20);
-            label11.TabIndex = 1;
-            label11.Text = "Room Name";
-            // 
             // ResourcesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(17, 24, 39);
-            ClientSize = new Size(606, 636);
-            Controls.Add(grpAvailability);
+            ClientSize = new Size(920, 647);
+            Controls.Add(groupBox1);
             Controls.Add(grpTimeSlots);
             Controls.Add(grbRooms);
             Name = "ResourcesForm";
@@ -727,18 +387,9 @@
             grpTimeSlots.ResumeLayout(false);
             grpTimeSlots.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSlots).EndInit();
-            grpAvailability.ResumeLayout(false);
-            grpAvailability.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUnavailable).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ResumeLayout(false);
         }
 
@@ -762,16 +413,6 @@
         private Button btnRemoveSlot;
         private Button btnAddSlot;
         private DataGridView dgvSlots;
-        private GroupBox grpAvailability;
-        private ComboBox cmbRooms;
-        private ComboBox cmbDates;
-        private ComboBox cmbSlots;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private Button btnMarkUnavailable;
-        private Button btnRestoreAvailability;
-        private DataGridView dgvUnavailable;
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
         private Button button1;
@@ -782,23 +423,5 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private GroupBox groupBox2;
-        private DataGridView dataGridView2;
-        private Button button3;
-        private Button button4;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker3;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private GroupBox groupBox3;
-        private DataGridView dataGridView3;
-        private Button button5;
-        private Button button6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label10;
-        private Label label11;
     }
 }
