@@ -145,23 +145,14 @@ namespace Resource_Form
         // ROOM UNAVAILABILITY
         // =========================
 
-        private void cmbDates_SelectedIndexChanged(
-            object sender, EventArgs e)
+        private void cmbDates_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox3.Items.Clear();
 
-            string selectedDate = comboBox2.Text;
+            comboBox3.Items.Add("09:00 am - 11:00 am");
+            comboBox3.Items.Add("11:30 am - 01:30 pm");
 
-            foreach (DataGridViewRow row in dgvSlots.Rows)
-            {
-                if (row.Cells[0].Value.ToString() == selectedDate)
-                {
-                    string slot =
-                        row.Cells[1].Value + " - " + row.Cells[2].Value;
-
-                    comboBox3.Items.Add(slot);
-                }
-            }
+            
         }
 
         private void btnMarkUnavailable_Click(
@@ -196,17 +187,22 @@ namespace Resource_Form
                 MessageBox.Show("Select a record first");
             }
         }
-        private void dgvRooms_CellContentClick( object sender, DataGridViewCellEventArgs e)
+        private void dgvRooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //empty for now
         }
-        private void dataGridView1_CellContentClick( object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //empty for now
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             // Empty for now
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
