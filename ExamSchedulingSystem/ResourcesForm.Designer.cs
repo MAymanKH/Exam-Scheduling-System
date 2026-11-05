@@ -76,7 +76,7 @@
             grbRooms.ForeColor = Color.White;
             grbRooms.Location = new Point(10, 10);
             grbRooms.Name = "grbRooms";
-            grbRooms.Size = new Size(761, 180);
+            grbRooms.Size = new Size(1083, 212);
             grbRooms.TabIndex = 0;
             grbRooms.TabStop = false;
             grbRooms.Text = "Rooms Mangement";
@@ -92,16 +92,16 @@
             dgvRooms.ReadOnly = true;
             dgvRooms.RowHeadersWidth = 51;
             dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRooms.Size = new Size(440, 77);
+            dgvRooms.Size = new Size(546, 109);
             dgvRooms.TabIndex = 6;
             dgvRooms.CellContentClick += dgvRooms_CellContentClick;
             // 
             // btnRemoveRoom
             // 
             btnRemoveRoom.BackColor = Color.FromArgb(79, 70, 229);
-            btnRemoveRoom.Location = new Point(310, 39);
+            btnRemoveRoom.Location = new Point(647, 119);
             btnRemoveRoom.Name = "btnRemoveRoom";
-            btnRemoveRoom.Size = new Size(125, 27);
+            btnRemoveRoom.Size = new Size(237, 57);
             btnRemoveRoom.TabIndex = 5;
             btnRemoveRoom.Text = "Remove Selected Room";
             btnRemoveRoom.UseVisualStyleBackColor = false;
@@ -109,9 +109,9 @@
             // btnAddRoom
             // 
             btnAddRoom.BackColor = Color.FromArgb(79, 70, 229);
-            btnAddRoom.Location = new Point(230, 39);
+            btnAddRoom.Location = new Point(682, 56);
             btnAddRoom.Name = "btnAddRoom";
-            btnAddRoom.Size = new Size(75, 27);
+            btnAddRoom.Size = new Size(163, 48);
             btnAddRoom.TabIndex = 4;
             btnAddRoom.Text = "Add Room";
             btnAddRoom.UseVisualStyleBackColor = false;
@@ -119,23 +119,23 @@
             // txtCapacity
             // 
             txtCapacity.BackColor = Color.White;
-            txtCapacity.Location = new Point(145, 40);
+            txtCapacity.Location = new Point(327, 43);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(75, 27);
+            txtCapacity.Size = new Size(136, 27);
             txtCapacity.TabIndex = 3;
             // 
             // txtRoomName
             // 
-            txtRoomName.Location = new Point(10, 40);
+            txtRoomName.Location = new Point(15, 43);
             txtRoomName.Name = "txtRoomName";
-            txtRoomName.Size = new Size(125, 27);
+            txtRoomName.Size = new Size(254, 27);
             txtRoomName.TabIndex = 2;
             // 
             // lblCapacity
             // 
             lblCapacity.AutoSize = true;
             lblCapacity.ForeColor = SystemColors.ButtonFace;
-            lblCapacity.Location = new Point(145, 20);
+            lblCapacity.Location = new Point(355, 17);
             lblCapacity.Name = "lblCapacity";
             lblCapacity.Size = new Size(66, 20);
             lblCapacity.TabIndex = 1;
@@ -164,9 +164,9 @@
             grpTimeSlots.Controls.Add(lblStartTime);
             grpTimeSlots.Controls.Add(lblExamDate);
             grpTimeSlots.ForeColor = Color.White;
-            grpTimeSlots.Location = new Point(10, 196);
+            grpTimeSlots.Location = new Point(10, 229);
             grpTimeSlots.Name = "grpTimeSlots";
-            grpTimeSlots.Size = new Size(761, 198);
+            grpTimeSlots.Size = new Size(1083, 222);
             grpTimeSlots.TabIndex = 1;
             grpTimeSlots.TabStop = false;
             grpTimeSlots.Text = "Dates & Time Slots";
@@ -181,15 +181,15 @@
             dgvSlots.ReadOnly = true;
             dgvSlots.RowHeadersWidth = 51;
             dgvSlots.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSlots.Size = new Size(440, 77);
+            dgvSlots.Size = new Size(546, 101);
             dgvSlots.TabIndex = 8;
             // 
             // btnRemoveSlot
             // 
             btnRemoveSlot.BackColor = Color.FromArgb(79, 70, 229);
-            btnRemoveSlot.Location = new Point(246, 73);
+            btnRemoveSlot.Location = new Point(647, 115);
             btnRemoveSlot.Name = "btnRemoveSlot";
-            btnRemoveSlot.Size = new Size(171, 29);
+            btnRemoveSlot.Size = new Size(237, 57);
             btnRemoveSlot.TabIndex = 7;
             btnRemoveSlot.Text = "Remove Selected Slot";
             btnRemoveSlot.UseVisualStyleBackColor = false;
@@ -197,9 +197,9 @@
             // btnAddSlot
             // 
             btnAddSlot.BackColor = Color.FromArgb(79, 70, 229);
-            btnAddSlot.Location = new Point(83, 73);
+            btnAddSlot.Location = new Point(682, 46);
             btnAddSlot.Name = "btnAddSlot";
-            btnAddSlot.Size = new Size(163, 29);
+            btnAddSlot.Size = new Size(163, 56);
             btnAddSlot.TabIndex = 6;
             btnAddSlot.Text = "Add Date & Slot";
             btnAddSlot.UseVisualStyleBackColor = false;
@@ -208,7 +208,7 @@
             // 
             dtpEndTime.CustomFormat = "hh:mm tt";
             dtpEndTime.Format = DateTimePickerFormat.Custom;
-            dtpEndTime.Location = new Point(336, 40);
+            dtpEndTime.Location = new Point(371, 59);
             dtpEndTime.Name = "dtpEndTime";
             dtpEndTime.ShowUpDown = true;
             dtpEndTime.Size = new Size(127, 27);
@@ -218,7 +218,7 @@
             // 
             dtpStartTime.CustomFormat = "hh:mm tt";
             dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(192, 40);
+            dtpStartTime.Location = new Point(212, 59);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.ShowUpDown = true;
             dtpStartTime.Size = new Size(127, 27);
@@ -227,7 +227,7 @@
             // dtpExamDate
             // 
             dtpExamDate.Format = DateTimePickerFormat.Short;
-            dtpExamDate.Location = new Point(10, 40);
+            dtpExamDate.Location = new Point(15, 59);
             dtpExamDate.Name = "dtpExamDate";
             dtpExamDate.Size = new Size(162, 27);
             dtpExamDate.TabIndex = 3;
@@ -236,7 +236,7 @@
             // 
             lblEndTime.AutoSize = true;
             lblEndTime.ForeColor = Color.White;
-            lblEndTime.Location = new Point(336, 23);
+            lblEndTime.Location = new Point(371, 23);
             lblEndTime.Name = "lblEndTime";
             lblEndTime.Size = new Size(71, 20);
             lblEndTime.TabIndex = 2;
@@ -246,7 +246,7 @@
             // 
             lblStartTime.AutoSize = true;
             lblStartTime.ForeColor = Color.White;
-            lblStartTime.Location = new Point(192, 23);
+            lblStartTime.Location = new Point(212, 23);
             lblStartTime.Name = "lblStartTime";
             lblStartTime.Size = new Size(77, 20);
             lblStartTime.TabIndex = 1;
@@ -274,9 +274,9 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
             groupBox1.ForeColor = SystemColors.ButtonFace;
-            groupBox1.Location = new Point(10, 400);
+            groupBox1.Location = new Point(10, 457);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(761, 227);
+            groupBox1.Size = new Size(1083, 239);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Room Unavailability";
@@ -286,20 +286,20 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(30, 41, 59);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(14, 139);
+            dataGridView1.Location = new Point(15, 124);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(440, 77);
+            dataGridView1.Size = new Size(546, 101);
             dataGridView1.TabIndex = 8;
             // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(79, 70, 229);
-            button1.Location = new Point(245, 80);
+            button1.Location = new Point(647, 124);
             button1.Name = "button1";
-            button1.Size = new Size(207, 29);
+            button1.Size = new Size(237, 57);
             button1.TabIndex = 7;
             button1.Text = "Mark Room as Unavailable";
             button1.UseVisualStyleBackColor = false;
@@ -307,9 +307,9 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(79, 70, 229);
-            button2.Location = new Point(83, 80);
+            button2.Location = new Point(689, 46);
             button2.Name = "button2";
-            button2.Size = new Size(156, 29);
+            button2.Size = new Size(156, 56);
             button2.TabIndex = 6;
             button2.Text = "Restore Availabale";
             button2.UseVisualStyleBackColor = false;
@@ -318,7 +318,7 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(10, 46);
+            comboBox1.Location = new Point(6, 61);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 5;
@@ -327,16 +327,17 @@
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(179, 46);
+            comboBox2.Location = new Point(179, 61);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 28);
             comboBox2.TabIndex = 4;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // comboBox3
             // 
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(347, 46);
+            comboBox3.Location = new Point(347, 61);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(151, 28);
             comboBox3.TabIndex = 3;
@@ -374,7 +375,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(17, 24, 39);
-            ClientSize = new Size(920, 647);
+            ClientSize = new Size(1126, 730);
             Controls.Add(groupBox1);
             Controls.Add(grpTimeSlots);
             Controls.Add(grbRooms);
