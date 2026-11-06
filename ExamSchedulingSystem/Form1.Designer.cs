@@ -88,7 +88,7 @@ namespace ExamSchedulingSystem
             lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(3, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(262, 45);
+            lblTitle.Size = new Size(215, 37);
             lblTitle.TabIndex = 5;
             lblTitle.Text = "Exam Scheduler";
             // 
@@ -99,7 +99,7 @@ namespace ExamSchedulingSystem
             btnTimetable.FlatStyle = FlatStyle.Flat;
             btnTimetable.Font = new Font("Calibri", 15F);
             btnTimetable.ForeColor = Color.White;
-            btnTimetable.Location = new Point(12, 271);
+            btnTimetable.Location = new Point(12, 143);
             btnTimetable.Name = "btnTimetable";
             btnTimetable.Size = new Size(195, 40);
             btnTimetable.TabIndex = 4;
@@ -114,7 +114,7 @@ namespace ExamSchedulingSystem
             btnStudents.FlatStyle = FlatStyle.Flat;
             btnStudents.Font = new Font("Calibri", 15F);
             btnStudents.ForeColor = Color.White;
-            btnStudents.Location = new Point(12, 156);
+            btnStudents.Location = new Point(12, 201);
             btnStudents.Name = "btnStudents";
             btnStudents.Size = new Size(195, 40);
             btnStudents.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace ExamSchedulingSystem
             btnResources.FlatStyle = FlatStyle.Flat;
             btnResources.Font = new Font("Calibri", 15F);
             btnResources.ForeColor = Color.White;
-            btnResources.Location = new Point(12, 215);
+            btnResources.Location = new Point(12, 256);
             btnResources.Name = "btnResources";
             btnResources.Size = new Size(195, 40);
             btnResources.TabIndex = 3;
@@ -249,7 +249,7 @@ namespace ExamSchedulingSystem
             lblScheduleTitle.ForeColor = Color.White;
             lblScheduleTitle.Location = new Point(15, 21);
             lblScheduleTitle.Name = "lblScheduleTitle";
-            lblScheduleTitle.Size = new Size(256, 46);
+            lblScheduleTitle.Size = new Size(205, 37);
             lblScheduleTitle.TabIndex = 10;
             lblScheduleTitle.Text = "Exam Timetable";
             // 
@@ -270,7 +270,7 @@ namespace ExamSchedulingSystem
             label6.ForeColor = Color.White;
             label6.Location = new Point(85, 50);
             label6.Name = "label6";
-            label6.Size = new Size(49, 57);
+            label6.Size = new Size(40, 46);
             label6.TabIndex = 10;
             label6.Text = "0";
             // 
@@ -281,7 +281,7 @@ namespace ExamSchedulingSystem
             label7.ForeColor = Color.White;
             label7.Location = new Point(4, 9);
             label7.Name = "label7";
-            label7.Size = new Size(203, 41);
+            label7.Size = new Size(164, 32);
             label7.TabIndex = 9;
             label7.Text = "Total Conflicts";
             // 
@@ -302,7 +302,7 @@ namespace ExamSchedulingSystem
             label8.ForeColor = Color.White;
             label8.Location = new Point(87, 50);
             label8.Name = "label8";
-            label8.Size = new Size(49, 57);
+            label8.Size = new Size(40, 46);
             label8.TabIndex = 10;
             label8.Text = "0";
             // 
@@ -313,7 +313,7 @@ namespace ExamSchedulingSystem
             label9.ForeColor = Color.White;
             label9.Location = new Point(4, 9);
             label9.Name = "label9";
-            label9.Size = new Size(152, 41);
+            label9.Size = new Size(123, 32);
             label9.TabIndex = 9;
             label9.Text = "Total Halls";
             // 
@@ -334,7 +334,7 @@ namespace ExamSchedulingSystem
             label4.ForeColor = Color.White;
             label4.Location = new Point(87, 50);
             label4.Name = "label4";
-            label4.Size = new Size(49, 57);
+            label4.Size = new Size(40, 46);
             label4.TabIndex = 10;
             label4.Text = "0";
             // 
@@ -345,7 +345,7 @@ namespace ExamSchedulingSystem
             label5.ForeColor = Color.White;
             label5.Location = new Point(4, 9);
             label5.Name = "label5";
-            label5.Size = new Size(219, 46);
+            label5.Size = new Size(174, 37);
             label5.TabIndex = 9;
             label5.Text = "Total Courses";
             // 
@@ -366,7 +366,7 @@ namespace ExamSchedulingSystem
             label2.ForeColor = Color.White;
             label2.Location = new Point(82, 50);
             label2.Name = "label2";
-            label2.Size = new Size(49, 57);
+            label2.Size = new Size(40, 46);
             label2.TabIndex = 10;
             label2.Text = "0";
             // 
@@ -377,7 +377,7 @@ namespace ExamSchedulingSystem
             label3.ForeColor = Color.White;
             label3.Location = new Point(4, 9);
             label3.Name = "label3";
-            label3.Size = new Size(205, 41);
+            label3.Size = new Size(165, 32);
             label3.TabIndex = 9;
             label3.Text = "Total Students";
             // 
@@ -403,7 +403,7 @@ namespace ExamSchedulingSystem
             label1.ForeColor = Color.White;
             label1.Location = new Point(19, 20);
             label1.Name = "label1";
-            label1.Size = new Size(182, 45);
+            label1.Size = new Size(149, 37);
             label1.TabIndex = 6;
             label1.Text = "Dashboard";
             // 
