@@ -23,6 +23,7 @@ namespace ExamSchedulingSystem
             form.AutoScaleDimensions = form.CurrentAutoScaleDimensions;
             form.AutoScaleMode = scaling;
             form.ResumeLayout(true);
+            RoundedCorners.Apply(form);
         }
 
         private static void ApplyChildren(Control parent)
