@@ -7,6 +7,7 @@ namespace ExamSchedulingSystem
         internal static readonly Font Navigation = new("Segoe UI", 12F);
         internal static readonly Font NavigationSelected = new("Segoe UI", 12F, FontStyle.Bold);
         internal static readonly Font Heading = new("Segoe UI", 20F);
+        internal static readonly Font Brand = new("Segoe UI", 16F, FontStyle.Bold);
         internal static readonly Font Section = new("Segoe UI", 16F);
         internal static readonly Font Metric = new("Segoe UI", 25F, FontStyle.Bold);
         internal const int ButtonHeight = 40;
@@ -68,7 +69,7 @@ namespace ExamSchedulingSystem
                         grid.ColumnHeadersDefaultCellStyle.Font = Action;
                         grid.ColumnHeadersHeight = 36;
                         grid.RowTemplate.Height = 34;
-                        grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                        grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
                         grid.DefaultCellStyle.Padding = new Padding(4);
                         break;
                 }

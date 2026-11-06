@@ -7,14 +7,20 @@ namespace ExamSchedulingSystem
 {
     public partial class frmMain : Form
     {
-        private Form activeForm = null;
+        private Form? activeForm;
+        private readonly Dictionary<Button, Form> pages = new();
+        private readonly Panel dashboard;
         internal bool LogoutRequested { get; private set; }
 
         public frmMain()
         {
             InitializeComponent();
             AppStyle.Apply(this);
-            lblTitle.Font = AppStyle.Section;
+            lblTitle.Font = AppStyle.Brand;
+            lblTitle.AutoSize = false;
+            lblTitle.SetBounds(0, lblTitle.Top, pnlSidebar.ClientSize.Width, ResponsiveLayout.Pixels(this, 40));
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = AppStyle.Heading;
             lblScheduleTitle.Font = AppStyle.Heading;
             foreach (var label in new[] { label3, label5, label7, label9 }) label.Font = AppStyle.Section;
@@ -60,13 +66,14 @@ namespace ExamSchedulingSystem
             PlaceLogout();
             logout.Click += (_, _) => { LogoutRequested = true; Close(); };
             btnGenerateSchedule.Dispose();
-            ResponsiveLayout.Dashboard(this, pnlContent, label1, SummaryChart.Subjects(),
+            dashboard = ResponsiveLayout.Dashboard(this, pnlContent, label1, SummaryChart.Subjects(),
                 new[] { pnlStudentsCard, pnlCoursesCard, pnlConflictsCard, pnlHallsCard },
                 pnlSchedulePreview, btnViewSchedule, dgvSchedulePreview);
             // Connect the buttons to their click events
             btnStudents.Click += btnStudents_Click;
             btnTimetable.Click += btnTimetable_Click;
             btnResources.Click += btnResources_Click;
+            btnViewSchedule.Click += btnTimetable_Click;
 
             // Select Dashboard when the program starts
             SetActiveButton(btnDashboard);
@@ -109,59 +116,56 @@ namespace ExamSchedulingSystem
             }
         }
 
-        // Open a form inside the main content panel
-        private void OpenPage(Form form, Button button)
+        private void OpenPage(Func<Form> createPage, Button button)
         {
-            // Close the previously opened form
-            if (activeForm != null)
+            pnlContent.SuspendLayout();
+            try
             {
-                activeForm.Close();
-                activeForm = null;
+                if (!pages.TryGetValue(button, out var form))
+                {
+                    form = createPage();
+                    form.TopLevel = false;
+                    form.FormBorderStyle = FormBorderStyle.None;
+                    form.Dock = DockStyle.Fill;
+                    pnlContent.Controls.Add(form);
+                    pages.Add(button, form);
+                }
+
+                var previous = activeForm;
+                form.Show();
+                form.BringToFront();
+                dashboard.Hide();
+                if (previous != form) previous?.Hide();
+                activeForm = form;
+                SetActiveButton(button);
             }
-
-            // Make the new form fit inside the dashboard panel
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-
-            // Show the form on top of the dashboard
-            pnlContent.Controls.Add(form);
-            form.Show();
-            form.BringToFront();
-
-            activeForm = form;
-
-            // Change the selected button color
-            SetActiveButton(button);
+            finally
+            {
+                pnlContent.ResumeLayout(true);
+            }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            // Close the currently opened form
-            if (activeForm != null)
-            {
-                activeForm.Close();
-                activeForm = null;
-            }
-
-            // The dashboard controls are now visible again
+            activeForm?.Hide();
+            activeForm = null;
+            dashboard.Show();
+            dashboard.BringToFront();
             SetActiveButton(btnDashboard);
         }
-
-
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            OpenPage(new Student_information(), btnStudents);
+            OpenPage(() => new Student_information(), btnStudents);
         }
 
         private void btnTimetable_Click(object sender, EventArgs e)
         {
-            OpenPage(new TimetableForm(), btnTimetable);
+            OpenPage(() => new TimetableForm(), btnTimetable);
         }
 
         private void btnResources_Click(object sender, EventArgs e)
         {
-            OpenPage(new Resource_Form.ResourcesForm(), btnResources);
+            OpenPage(() => new Resource_Form.ResourcesForm(), btnResources);
         }
     }
 }

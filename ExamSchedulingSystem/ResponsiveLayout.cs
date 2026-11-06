@@ -95,7 +95,7 @@ namespace ExamSchedulingSystem
             Arrange();
         }
 
-        internal static void Dashboard(Form form, Panel content, Label title, SummaryChart chart, Panel[] cards,
+        internal static Panel Dashboard(Form form, Panel content, Label title, SummaryChart chart, Panel[] cards,
             Panel preview, Button view, DataGridView grid)
         {
             form.MinimumSize = new Size(720, 500);
@@ -134,6 +134,7 @@ namespace ExamSchedulingSystem
             }
             dashboard.Resize += (_, _) => Arrange();
             Arrange();
+            return dashboard;
         }
 
     }
