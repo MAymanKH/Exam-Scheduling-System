@@ -15,10 +15,14 @@ namespace ExamSchedulingSystem
             lblTitle.Font = AppStyle.Heading;
             foreach (var exam in SampleData.Exams)
                 dgvTimetable.Rows.Add(exam.Course, exam.Date.ToString("dd MMM yyyy"), exam.Start, exam.End, exam.Room, exam.Students);
-            cmbRoom.Items.AddRange(new object[] { "Hall A", "Hall B", "Lab 1" });
-
-            ResponsiveLayout.Timetable(this, pnlEdit, lblStatus, btnApply,
-                (lblRoom, cmbRoom), (lblDate, dtpDate), (lblStart, dtpStart), (lblEnd, dtpEnd));
+            MinimumSize = new Size(400, 500);
+            var chart = SummaryChart.Days();
+            chart.Dock = DockStyle.Top;
+            Controls.Add(chart);
+            Controls.SetChildIndex(chart, 2);
+            void SizeChart() => chart.Height = Math.Clamp(ClientSize.Height / 4, 116, 186);
+            Resize += (_, _) => SizeChart();
+            SizeChart();
             // These 3 lines are here (not in the Designer) so the Designer
             // still shows a normal form that you can edit.
             // At runtime they make the form sit INSIDE frmMain's panel.
@@ -33,24 +37,5 @@ namespace ExamSchedulingSystem
             // TODO
         }
 
-        // Click on "Apply Change" -> the logic will be added here later.
-        private void btnApply_Click(object sender, System.EventArgs e)
-        {
-            // TODO
-        }
-
-        // Selected row changed in the table -> logic later.
-        private void dgvTimetable_SelectionChanged(object sender, System.EventArgs e)
-        {
-            // TODO
-        }
-
-        // Shows a message under the editors.
-        // Example: SetStatus("Saved", Color.LimeGreen);
-        public void SetStatus(string text, Color color)
-        {
-            lblStatus.ForeColor = color;
-            lblStatus.Text = text;
-        }
     }
 }

@@ -39,7 +39,7 @@ namespace ExamSchedulingSystem
             return fields;
         }
 
-        internal static void Import(Form form, Label source, TextBox input, Button action, Panel card)
+        internal static void Import(Form form, Label source, TextBox input, Button action, Panel card, SummaryChart chart)
         {
             form.MinimumSize = new Size(400, 400);
             form.AutoScroll = false;
@@ -61,16 +61,31 @@ namespace ExamSchedulingSystem
             layout.SetColumnSpan(card, 2);
             card.Dock = DockStyle.Fill;
             card.Margin = Padding.Empty;
+            var body = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2, Margin = Padding.Empty };
+            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            body.RowStyles.Add(new RowStyle(SizeType.Absolute, chart.Height + 12));
+            body.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            chart.Dock = DockStyle.Fill;
+            chart.Margin = new Padding(0, 0, 0, 12);
+            body.Controls.Add(chart, 0, 0);
+            body.Controls.Add(card, 0, 1);
+            var grid = card.Controls.OfType<DataGridView>().Single();
+            void SizeGrid() => grid.SetBounds(16, 68, Math.Max(1, card.ClientSize.Width - 32), Math.Max(1, card.ClientSize.Height - 84));
+            card.SizeChanged += (_, _) => SizeGrid();
+            SizeGrid();
+            layout.Controls.Add(body, 0, 2);
+            layout.SetColumnSpan(body, 2);
             form.Controls.Add(layout);
             void Arrange()
             {
+                body.RowStyles[0].Height = Pixels(form, Math.Clamp(form.ClientSize.Height / 4, 116, 186)) + Pixels(form, 12);
                 bool narrow = form.ClientSize.Width < Pixels(form, 620);
                 layout.SuspendLayout();
                 layout.SetColumnSpan(input, narrow ? 2 : 1);
                 layout.SetCellPosition(action, new TableLayoutPanelCellPosition(narrow ? 0 : 1, narrow ? 2 : 1));
                 layout.SetColumnSpan(action, narrow ? 2 : 1);
                 layout.RowCount = narrow ? 4 : 3;
-                layout.SetCellPosition(card, new TableLayoutPanelCellPosition(0, narrow ? 3 : 2));
+                layout.SetCellPosition(body, new TableLayoutPanelCellPosition(0, narrow ? 3 : 2));
                 layout.RowStyles.Clear();
                 for (int i = 0; i < layout.RowCount - 1; i++) layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
                 layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
@@ -80,13 +95,14 @@ namespace ExamSchedulingSystem
             Arrange();
         }
 
-        internal static void Dashboard(Form form, Panel content, Label title, Button generate, Panel[] cards,
+        internal static void Dashboard(Form form, Panel content, Label title, SummaryChart chart, Panel[] cards,
             Panel preview, Button view, DataGridView grid)
         {
             form.MinimumSize = new Size(720, 500);
             var dashboard = new Panel { Dock = DockStyle.Fill };
             foreach (var control in content.Controls.Cast<Control>().ToArray()) { control.Anchor = AnchorStyles.Top | AnchorStyles.Left; dashboard.Controls.Add(control); }
             content.Controls.Add(dashboard);
+            dashboard.Controls.Add(chart);
             void Arrange()
             {
                 dashboard.AutoScroll = false;
@@ -95,10 +111,10 @@ namespace ExamSchedulingSystem
                 int columns = width >= Pixels(form, 880) ? 4 : 2;
                 int cardWidth = (width - gap * (columns - 1)) / columns;
                 int cardHeight = Pixels(form, 115);
-                int top = gap + Math.Max(title.Height, generate.Height) + gap;
+                int top = gap + title.Height + gap;
                 var offset = dashboard.AutoScrollPosition;
                 title.Location = new Point(gap + offset.X, gap + offset.Y);
-                generate.Location = new Point(gap + width - generate.Width + offset.X, gap + offset.Y);
+
                 for (int i = 0; i < cards.Length; i++)
                 {
                     cards[i].SetBounds(gap + i % columns * (cardWidth + gap) + offset.X,
@@ -107,6 +123,8 @@ namespace ExamSchedulingSystem
                         if (label.Font == AppStyle.Metric) label.Left = (cardWidth - label.Width) / 2;
                 }
                 int previewTop = top + (cards.Length / columns) * (cardHeight + gap);
+                chart.SetBounds(gap + offset.X, previewTop + offset.Y, width, Pixels(form, 164));
+                previewTop += chart.Height + gap;
                 preview.SetBounds(gap + offset.X, previewTop + offset.Y, width,
                     Math.Max(Pixels(form, 240), dashboard.ClientSize.Height - previewTop - gap));
                 view.Location = new Point(preview.Width - view.Width - gap, gap);
@@ -118,30 +136,5 @@ namespace ExamSchedulingSystem
             Arrange();
         }
 
-        internal static void Timetable(Form form, Panel editor, Label status, Button apply,
-            params (Label Label, Control Input)[] fields)
-        {
-            form.MinimumSize = new Size(400, 500);
-            var flow = new FlowLayoutPanel { Dock = DockStyle.Top, AutoSize = true, WrapContents = true, Padding = new Padding(8) };
-            foreach (var field in fields)
-            {
-                var group = new Panel { Size = new Size(field.Input.Width + 8, Pixels(form, 64)), Margin = new Padding(0, 0, 8, 0) };
-                group.Controls.Add(field.Label);
-                group.Controls.Add(field.Input);
-                field.Label.Location = Point.Empty;
-                field.Input.Location = new Point(0, Pixels(form, 24));
-                flow.Controls.Add(group);
-            }
-            apply.Margin = new Padding(0, Pixels(form, 20), 0, 0);
-            flow.Controls.Add(apply);
-            status.Dock = DockStyle.None;
-            status.Height = Pixels(form, 44);
-            editor.Controls.Add(flow);
-            editor.SizeChanged += (_, _) => status.SetBounds(Pixels(form, 8), editor.Height - status.Height, editor.Width - Pixels(form, 16), status.Height);
-            void Arrange() => editor.Height = flow.GetPreferredSize(new Size(editor.ClientSize.Width, 0)).Height + status.Height;
-            flow.SizeChanged += (_, _) => Arrange();
-            form.Resize += (_, _) => Arrange();
-            Arrange();
-        }
     }
 }

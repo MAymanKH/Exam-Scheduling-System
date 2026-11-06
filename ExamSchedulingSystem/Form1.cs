@@ -59,7 +59,8 @@ namespace ExamSchedulingSystem
             pnlSidebar.Resize += (_, _) => PlaceLogout();
             PlaceLogout();
             logout.Click += (_, _) => { LogoutRequested = true; Close(); };
-            ResponsiveLayout.Dashboard(this, pnlContent, label1, btnGenerateSchedule,
+            btnGenerateSchedule.Dispose();
+            ResponsiveLayout.Dashboard(this, pnlContent, label1, SummaryChart.Subjects(),
                 new[] { pnlStudentsCard, pnlCoursesCard, pnlConflictsCard, pnlHallsCard },
                 pnlSchedulePreview, btnViewSchedule, dgvSchedulePreview);
             // Connect the buttons to their click events
