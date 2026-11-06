@@ -1,4 +1,4 @@
-﻿namespace Resource_Form
+namespace Resource_Form
 {
     partial class ResourcesForm
     {
@@ -42,10 +42,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 341);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1102, 321);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // button1
             // 
@@ -59,7 +60,7 @@
             button1.Name = "button1";
             button1.Size = new Size(242, 52);
             button1.TabIndex = 1;
-            button1.Text = "Import your recource file";
+            button1.Text = "Import resources";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -68,8 +69,9 @@
             textBox1.Location = new Point(54, 179);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(560, 27);
+            textBox1.ReadOnly = true;
+            textBox1.Text = "Sample data";
             textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -80,7 +82,7 @@
             label1.Name = "label1";
             label1.Size = new Size(148, 28);
             label1.TabIndex = 3;
-            label1.Text = "Recource path";
+            label1.Text = "Data source";
             // 
             // ResourcesForm
             // 
@@ -95,7 +97,6 @@
             Controls.Add(dataGridView1);
             Name = "ResourcesForm";
             Text = "Resources Management";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

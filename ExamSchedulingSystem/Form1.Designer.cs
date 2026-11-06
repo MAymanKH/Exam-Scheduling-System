@@ -1,4 +1,4 @@
-﻿namespace ExamSchedulingSystem
+namespace ExamSchedulingSystem
 {
     partial class frmMain
     {
@@ -34,7 +34,6 @@
             btnStudents = new Button();
             btnDashboard = new Button();
             btnResources = new Button();
-            btnCourses = new Button();
             pnlContent = new Panel();
             pnlSchedulePreview = new Panel();
             dgvSchedulePreview = new DataGridView();
@@ -76,7 +75,6 @@
             pnlSidebar.Controls.Add(btnStudents);
             pnlSidebar.Controls.Add(btnDashboard);
             pnlSidebar.Controls.Add(btnResources);
-            pnlSidebar.Controls.Add(btnCourses);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
@@ -101,7 +99,7 @@
             btnTimetable.FlatStyle = FlatStyle.Flat;
             btnTimetable.Font = new Font("Calibri", 15F);
             btnTimetable.ForeColor = Color.White;
-            btnTimetable.Location = new Point(12, 327);
+            btnTimetable.Location = new Point(12, 271);
             btnTimetable.Name = "btnTimetable";
             btnTimetable.Size = new Size(195, 40);
             btnTimetable.TabIndex = 4;
@@ -148,28 +146,13 @@
             btnResources.FlatStyle = FlatStyle.Flat;
             btnResources.Font = new Font("Calibri", 15F);
             btnResources.ForeColor = Color.White;
-            btnResources.Location = new Point(12, 271);
+            btnResources.Location = new Point(12, 215);
             btnResources.Name = "btnResources";
             btnResources.Size = new Size(195, 40);
             btnResources.TabIndex = 3;
             btnResources.Text = "Resources";
             btnResources.TextAlign = ContentAlignment.MiddleLeft;
             btnResources.UseVisualStyleBackColor = true;
-            // 
-            // btnCourses
-            // 
-            btnCourses.FlatAppearance.BorderSize = 0;
-            btnCourses.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 55, 80);
-            btnCourses.FlatStyle = FlatStyle.Flat;
-            btnCourses.Font = new Font("Calibri", 15F);
-            btnCourses.ForeColor = Color.White;
-            btnCourses.Location = new Point(12, 215);
-            btnCourses.Name = "btnCourses";
-            btnCourses.Size = new Size(195, 40);
-            btnCourses.TabIndex = 2;
-            btnCourses.Text = "Courses";
-            btnCourses.TextAlign = ContentAlignment.MiddleLeft;
-            btnCourses.UseVisualStyleBackColor = true;
             // 
             // pnlContent
             // 
@@ -458,7 +441,6 @@
         private Panel pnlSidebar;
         private Button btnTimetable;
         private Button btnResources;
-        private Button btnCourses;
         private Button btnStudents;
         private Button btnDashboard;
         private Label lblTitle;

@@ -15,7 +15,6 @@ namespace ExamSchedulingSystem
 
             // Connect the buttons to their click events
             btnStudents.Click += btnStudents_Click;
-            btnCourses.Click += btnCourses_Click;
             btnTimetable.Click += btnTimetable_Click;
             btnResources.Click += btnResources_Click;
 
@@ -30,7 +29,6 @@ namespace ExamSchedulingSystem
             {
                 btnDashboard,
                 btnStudents,
-                btnCourses,
                 btnTimetable,
                 btnResources
             };
@@ -103,11 +101,6 @@ namespace ExamSchedulingSystem
         private void btnStudents_Click(object sender, EventArgs e)
         {
             OpenPage(new Student_information(), btnStudents);
-        }
-
-        private void btnCourses_Click(object sender, EventArgs e)
-        {
-            OpenPage(new CoursesForm(), btnCourses);
         }
 
         private void btnTimetable_Click(object sender, EventArgs e)

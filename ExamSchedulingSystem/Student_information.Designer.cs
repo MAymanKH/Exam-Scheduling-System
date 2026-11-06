@@ -1,4 +1,4 @@
-﻿namespace ExamSchedulingSystem
+namespace ExamSchedulingSystem
 {
     partial class Student_information
     {
@@ -40,6 +40,8 @@
             textBox1.Location = new Point(49, 144);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(475, 27);
+            textBox1.ReadOnly = true;
+            textBox1.Text = "Sample data";
             textBox1.TabIndex = 0;
             // 
             // button1
@@ -51,7 +53,7 @@
             button1.Name = "button1";
             button1.Size = new Size(247, 52);
             button1.TabIndex = 1;
-            button1.Text = "Import student information file";
+            button1.Text = "Import students";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
@@ -61,6 +63,8 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(49, 268);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(868, 310);
             dataGridView1.TabIndex = 2;
@@ -74,7 +78,7 @@
             label1.Name = "label1";
             label1.Size = new Size(94, 28);
             label1.TabIndex = 3;
-            label1.Text = "File Path";
+            label1.Text = "Data source";
             // 
             // Student_information
             // 
