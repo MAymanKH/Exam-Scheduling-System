@@ -8,6 +8,7 @@ namespace ExamSchedulingSystem
     public partial class frmMain : Form
     {
         private Form? activeForm;
+        private readonly Button btnCoursesPreview = new Button();
         private readonly Dictionary<Button, Form> pages = new();
         private readonly Panel dashboard;
         internal bool LogoutRequested { get; private set; }
@@ -34,7 +35,15 @@ namespace ExamSchedulingSystem
             label8.Text = SampleData.Exams.Select(exam => exam.Room).Distinct().Count().ToString();
 
             pnlSidebar.AutoScroll = true;
-            var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources };
+            btnCoursesPreview.Name = "btnCoursesPreview";
+            btnCoursesPreview.Text = "Courses (PR #6)";
+            btnCoursesPreview.ForeColor = Color.White;
+            btnCoursesPreview.BackColor = pnlSidebar.BackColor;
+            btnCoursesPreview.FlatAppearance.BorderSize = 0;
+            btnCoursesPreview.FlatStyle = FlatStyle.Flat;
+            pnlSidebar.Controls.Add(btnCoursesPreview);
+            btnCoursesPreview.Click += (_, _) => OpenPage(() => new CoursesForm(), btnCoursesPreview);
+            var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources, btnCoursesPreview };
             int inset = ResponsiveLayout.Pixels(this, 12);
             int buttonHeight = ResponsiveLayout.Pixels(this, 44);
             int gap = ResponsiveLayout.Pixels(this, 8);
@@ -87,7 +96,8 @@ namespace ExamSchedulingSystem
                 btnDashboard,
                 btnStudents,
                 btnTimetable,
-                btnResources
+                btnResources,
+                btnCoursesPreview
             };
 
             Color normalColor = Color.FromArgb(10, 18, 35);
