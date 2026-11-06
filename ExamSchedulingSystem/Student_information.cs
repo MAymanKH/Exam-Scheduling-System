@@ -10,7 +10,7 @@ namespace ExamSchedulingSystem
             AppStyle.Apply(this);
             lblDataTitle.Font = AppStyle.Heading;
             button1.Width = 190;
-            ResponsiveLayout.Import(this, label1, textBox1, button1, pnlData, SummaryChart.Enrollment());
+            ResponsiveLayout.Import(this, lblDataTitle, label1, textBox1, button1, pnlData, SummaryChart.Enrollment());
             dataGridView1.DataSource = SampleData.Students();
         }
 

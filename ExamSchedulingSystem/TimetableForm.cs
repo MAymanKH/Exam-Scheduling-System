@@ -13,6 +13,8 @@ namespace ExamSchedulingSystem
             InitializeComponent();
             AppStyle.Apply(this);
             lblTitle.Font = AppStyle.Heading;
+            Padding = new Padding(ResponsiveLayout.Pixels(this, ResponsiveLayout.PageTitleLeft), Padding.Top, Padding.Right, Padding.Bottom);
+            lblTitle.Location = new Point(0, ResponsiveLayout.Pixels(this, ResponsiveLayout.PageTitleTop) - Padding.Top);
             foreach (var exam in SampleData.Exams)
                 dgvTimetable.Rows.Add(exam.Course, exam.Date.ToString("dd MMM yyyy"), exam.Start, exam.End, exam.Room, exam.Students);
             MinimumSize = new Size(400, 500);

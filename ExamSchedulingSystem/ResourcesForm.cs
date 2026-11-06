@@ -10,7 +10,7 @@ namespace Resource_Form
             ExamSchedulingSystem.AppStyle.Apply(this);
             lblDataTitle.Font = ExamSchedulingSystem.AppStyle.Heading;
             button1.Width = 190;
-            ExamSchedulingSystem.ResponsiveLayout.Import(this, label1, textBox1, button1, pnlData, ExamSchedulingSystem.SummaryChart.Utilization());
+            ExamSchedulingSystem.ResponsiveLayout.Import(this, lblDataTitle, label1, textBox1, button1, pnlData, ExamSchedulingSystem.SummaryChart.Utilization());
             dataGridView1.DataSource = ExamSchedulingSystem.SampleData.Resources();
         }
 

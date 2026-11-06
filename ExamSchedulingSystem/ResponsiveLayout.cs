@@ -2,6 +2,9 @@ namespace ExamSchedulingSystem
 {
     internal static class ResponsiveLayout
     {
+        internal const int PageTitleLeft = 24;
+        internal const int PageTitleTop = 30;
+
         internal static int Pixels(Control control, int value) => (int)Math.Round(value * control.DeviceDpi / 96d);
 
         internal static TableLayoutPanel Fields(Form form, params Control[] controls)
@@ -39,26 +42,30 @@ namespace ExamSchedulingSystem
             return fields;
         }
 
-        internal static void Import(Form form, Label source, TextBox input, Button action, Panel card, SummaryChart chart)
+        internal static void Import(Form form, Label title, Label source, TextBox input, Button action, Panel card, SummaryChart chart)
         {
             form.MinimumSize = new Size(400, 400);
             form.AutoScroll = false;
-            var layout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 3, Padding = new Padding(24) };
+            var layout = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 4, Padding = new Padding(Pixels(form, PageTitleLeft), Pixels(form, PageTitleTop), Pixels(form, 24), Pixels(form, 24)) };
             layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             layout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            layout.Controls.Add(source, 0, 0);
+            layout.Controls.Add(title, 0, 0);
+            layout.SetColumnSpan(title, 2);
+            title.Margin = new Padding(0, 0, 0, 16);
+            title.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            title.Font = AppStyle.Heading;
+            title.Padding = Padding.Empty;
+            layout.Controls.Add(source, 0, 1);
             layout.SetColumnSpan(source, 2);
             source.Margin = new Padding(0, 0, 0, 8);
-            layout.Controls.Add(input, 0, 1);
+            layout.Controls.Add(input, 0, 2);
             input.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             input.Margin = new Padding(0, 0, 16, 16);
-            layout.Controls.Add(action, 1, 1);
+            layout.Controls.Add(action, 1, 2);
             action.Margin = new Padding(0, 0, 0, 16);
-            layout.Controls.Add(card, 0, 2);
-            layout.SetColumnSpan(card, 2);
             card.Dock = DockStyle.Fill;
             card.Margin = Padding.Empty;
             var body = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2, Margin = Padding.Empty };
@@ -70,10 +77,10 @@ namespace ExamSchedulingSystem
             body.Controls.Add(chart, 0, 0);
             body.Controls.Add(card, 0, 1);
             var grid = card.Controls.OfType<DataGridView>().Single();
-            void SizeGrid() => grid.SetBounds(16, 68, Math.Max(1, card.ClientSize.Width - 32), Math.Max(1, card.ClientSize.Height - 84));
+            void SizeGrid() => grid.SetBounds(16, 16, Math.Max(1, card.ClientSize.Width - 32), Math.Max(1, card.ClientSize.Height - 32));
             card.SizeChanged += (_, _) => SizeGrid();
             SizeGrid();
-            layout.Controls.Add(body, 0, 2);
+            layout.Controls.Add(body, 0, 3);
             layout.SetColumnSpan(body, 2);
             form.Controls.Add(layout);
             void Arrange()
@@ -82,10 +89,10 @@ namespace ExamSchedulingSystem
                 bool narrow = form.ClientSize.Width < Pixels(form, 620);
                 layout.SuspendLayout();
                 layout.SetColumnSpan(input, narrow ? 2 : 1);
-                layout.SetCellPosition(action, new TableLayoutPanelCellPosition(narrow ? 0 : 1, narrow ? 2 : 1));
+                layout.SetCellPosition(action, new TableLayoutPanelCellPosition(narrow ? 0 : 1, narrow ? 3 : 2));
                 layout.SetColumnSpan(action, narrow ? 2 : 1);
-                layout.RowCount = narrow ? 4 : 3;
-                layout.SetCellPosition(body, new TableLayoutPanelCellPosition(0, narrow ? 3 : 2));
+                layout.RowCount = narrow ? 5 : 4;
+                layout.SetCellPosition(body, new TableLayoutPanelCellPosition(0, narrow ? 4 : 3));
                 layout.RowStyles.Clear();
                 for (int i = 0; i < layout.RowCount - 1; i++) layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
                 layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
@@ -111,9 +118,9 @@ namespace ExamSchedulingSystem
                 int columns = width >= Pixels(form, 880) ? 4 : 2;
                 int cardWidth = (width - gap * (columns - 1)) / columns;
                 int cardHeight = Pixels(form, 115);
-                int top = gap + title.Height + gap;
+                int top = Pixels(form, PageTitleTop) + title.Height + gap;
                 var offset = dashboard.AutoScrollPosition;
-                title.Location = new Point(gap + offset.X, gap + offset.Y);
+                title.Location = new Point(Pixels(form, PageTitleLeft) + offset.X, Pixels(form, PageTitleTop) + offset.Y);
 
                 for (int i = 0; i < cards.Length; i++)
                 {
