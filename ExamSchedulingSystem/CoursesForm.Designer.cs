@@ -30,16 +30,10 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitle = new Label();
-            lblCode = new Label();
-            lblName = new Label();
-            txtCourseCode = new TextBox();
-            txtCourseName = new TextBox();
-            btnAddCourse = new Button();
-            btnClear = new Button();
-            btnAddExam = new Button();
             dgvCourses = new DataGridView();
-            btnViewExam = new Button();
             lblSubtitle = new Label();
             pnlTotalCourses = new Panel();
             lblTotalCoursesValue = new Label();
@@ -50,10 +44,14 @@
             pnlPending = new Panel();
             lblPendingValue = new Label();
             lblPendingTitle = new Label();
+            dgvStudents = new DataGridView();
+            lblCourseHeader = new Label();
+            lblStudentsHeader = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCourses).BeginInit();
             pnlTotalCourses.SuspendLayout();
             pnlScheduled.SuspendLayout();
             pnlPending.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -64,111 +62,19 @@
             lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(30, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(377, 50);
+            lblTitle.Size = new Size(359, 50);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Courses Managment";
+            lblTitle.Text = "Courses && Students";
             lblTitle.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblCode
-            // 
-            lblCode.AutoSize = true;
-            lblCode.BackColor = Color.Transparent;
-            lblCode.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCode.ForeColor = Color.FromArgb(203, 213, 225);
-            lblCode.Location = new Point(30, 255);
-            lblCode.Name = "lblCode";
-            lblCode.Size = new Size(110, 23);
-            lblCode.TabIndex = 1;
-            lblCode.Text = "Course Code";
-            // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.BackColor = Color.Transparent;
-            lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.ForeColor = Color.FromArgb(203, 213, 225);
-            lblName.Location = new Point(290, 255);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(116, 23);
-            lblName.TabIndex = 2;
-            lblName.Text = "Course Name";
-            // 
-            // txtCourseCode
-            // 
-            txtCourseCode.BackColor = Color.FromArgb(30, 41, 59);
-            txtCourseCode.BorderStyle = BorderStyle.FixedSingle;
-            txtCourseCode.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCourseCode.ForeColor = Color.White;
-            txtCourseCode.Location = new Point(30, 285);
-            txtCourseCode.Multiline = true;
-            txtCourseCode.Name = "txtCourseCode";
-            txtCourseCode.Size = new Size(224, 34);
-            txtCourseCode.TabIndex = 3;
-            // 
-            // txtCourseName
-            // 
-            txtCourseName.BackColor = Color.FromArgb(30, 41, 59);
-            txtCourseName.BorderStyle = BorderStyle.FixedSingle;
-            txtCourseName.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCourseName.ForeColor = Color.White;
-            txtCourseName.Location = new Point(290, 285);
-            txtCourseName.Multiline = true;
-            txtCourseName.Name = "txtCourseName";
-            txtCourseName.Size = new Size(224, 34);
-            txtCourseName.TabIndex = 4;
-            // 
-            // btnAddCourse
-            // 
-            btnAddCourse.BackColor = Color.FromArgb(37, 99, 235);
-            btnAddCourse.FlatAppearance.MouseOverBackColor = Color.FromArgb(59, 130, 246);
-            btnAddCourse.FlatStyle = FlatStyle.Flat;
-            btnAddCourse.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddCourse.ForeColor = Color.White;
-            btnAddCourse.Location = new Point(30, 340);
-            btnAddCourse.Name = "btnAddCourse";
-            btnAddCourse.Size = new Size(150, 42);
-            btnAddCourse.TabIndex = 5;
-            btnAddCourse.Text = "Add Course";
-            btnAddCourse.UseVisualStyleBackColor = false;
-            btnAddCourse.Click += btnAddCourse_Click;
-            // 
-            // btnClear
-            // 
-            btnClear.BackColor = Color.FromArgb(51, 65, 85);
-            btnClear.FlatAppearance.BorderSize = 0;
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(195, 340);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(110, 42);
-            btnClear.TabIndex = 6;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
-            // 
-            // btnAddExam
-            // 
-            btnAddExam.BackColor = Color.FromArgb(16, 185, 129);
-            btnAddExam.FlatAppearance.BorderSize = 0;
-            btnAddExam.FlatStyle = FlatStyle.Flat;
-            btnAddExam.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddExam.ForeColor = Color.White;
-            btnAddExam.Location = new Point(30, 700);
-            btnAddExam.Name = "btnAddExam";
-            btnAddExam.Size = new Size(150, 45);
-            btnAddExam.TabIndex = 7;
-            btnAddExam.Text = "Add Exam";
-            btnAddExam.UseVisualStyleBackColor = false;
-            btnAddExam.Click += btnAddExam_Click;
             // 
             // dgvCourses
             // 
             dgvCourses.AllowUserToAddRows = false;
             dgvCourses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCourses.BackgroundColor = Color.FromArgb(15, 23, 42);
+            dgvCourses.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvCourses.BackgroundColor = Color.FromArgb(30, 45, 75);
             dgvCourses.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 65, 85);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
@@ -178,38 +84,26 @@
             dgvCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCourses.ColumnHeadersHeight = 42;
             dgvCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(30, 41, 59);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(37, 99, 235);
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvCourses.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCourses.EnableHeadersVisualStyles = false;
-            dgvCourses.Location = new Point(30, 420);
+            dgvCourses.Location = new Point(40, 270);
             dgvCourses.Name = "dgvCourses";
             dgvCourses.ReadOnly = true;
             dgvCourses.RowHeadersVisible = false;
             dgvCourses.RowHeadersWidth = 51;
+            dgvCourses.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvCourses.RowTemplate.Height = 38;
             dgvCourses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCourses.Size = new Size(760, 250);
+            dgvCourses.Size = new Size(440, 340);
             dgvCourses.TabIndex = 8;
-            // 
-            // btnViewExam
-            // 
-            btnViewExam.BackColor = Color.FromArgb(71, 85, 105);
-            btnViewExam.FlatAppearance.BorderSize = 0;
-            btnViewExam.FlatStyle = FlatStyle.Flat;
-            btnViewExam.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnViewExam.ForeColor = Color.White;
-            btnViewExam.Location = new Point(195, 700);
-            btnViewExam.Name = "btnViewExam";
-            btnViewExam.Size = new Size(150, 45);
-            btnViewExam.TabIndex = 9;
-            btnViewExam.Text = "View Exam";
-            btnViewExam.UseVisualStyleBackColor = false;
-            btnViewExam.Click += btnViewExam_Click;
+            dgvCourses.SelectionChanged += dgvCourses_SelectionChanged;
             // 
             // lblSubtitle
             // 
@@ -218,9 +112,9 @@
             lblSubtitle.ForeColor = Color.Silver;
             lblSubtitle.Location = new Point(34, 77);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(332, 23);
+            lblSubtitle.Size = new Size(279, 23);
             lblSubtitle.TabIndex = 10;
-            lblSubtitle.Text = "Manage your courses and exam schedules";
+            lblSubtitle.Text = "View courses and enrolled students";
             // 
             // pnlTotalCourses
             // 
@@ -284,9 +178,9 @@
             lblScheduledTitle.ForeColor = Color.FromArgb(52, 211, 153);
             lblScheduledTitle.Location = new Point(20, 15);
             lblScheduledTitle.Name = "lblScheduledTitle";
-            lblScheduledTitle.Size = new Size(142, 23);
+            lblScheduledTitle.Size = new Size(117, 23);
             lblScheduledTitle.TabIndex = 13;
-            lblScheduledTitle.Text = "Scheduled Exams";
+            lblScheduledTitle.Text = "Total Students";
             // 
             // pnlPending
             // 
@@ -317,9 +211,65 @@
             lblPendingTitle.ForeColor = Color.FromArgb(251, 191, 36);
             lblPendingTitle.Location = new Point(20, 15);
             lblPendingTitle.Name = "lblPendingTitle";
-            lblPendingTitle.Size = new Size(125, 23);
+            lblPendingTitle.Size = new Size(177, 23);
             lblPendingTitle.TabIndex = 13;
-            lblPendingTitle.Text = "Pending Exams";
+            lblPendingTitle.Text = "Courses with students";
+            // 
+            // dgvStudents
+            // 
+            dgvStudents.AllowUserToAddRows = false;
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStudents.BackgroundColor = Color.FromArgb(30, 45, 75);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvStudents.ColumnHeadersHeight = 42;
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 55, 85);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvStudents.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvStudents.EnableHeadersVisualStyles = false;
+            dgvStudents.Location = new Point(500, 270);
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.ReadOnly = true;
+            dgvStudents.RowHeadersVisible = false;
+            dgvStudents.RowHeadersWidth = 51;
+            dgvStudents.RowTemplate.Height = 38;
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStudents.Size = new Size(400, 340);
+            dgvStudents.TabIndex = 14;
+            // 
+            // lblCourseHeader
+            // 
+            lblCourseHeader.AutoSize = true;
+            lblCourseHeader.BackColor = Color.Transparent;
+            lblCourseHeader.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCourseHeader.Location = new Point(40, 235);
+            lblCourseHeader.Name = "lblCourseHeader";
+            lblCourseHeader.Size = new Size(201, 31);
+            lblCourseHeader.TabIndex = 15;
+            lblCourseHeader.Text = "Available Courses";
+            // 
+            // lblStudentsHeader
+            // 
+            lblStudentsHeader.AutoSize = true;
+            lblStudentsHeader.BackColor = Color.Transparent;
+            lblStudentsHeader.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStudentsHeader.Location = new Point(500, 235);
+            lblStudentsHeader.Name = "lblStudentsHeader";
+            lblStudentsHeader.Size = new Size(205, 31);
+            lblStudentsHeader.TabIndex = 16;
+            lblStudentsHeader.Text = "Enrroled Students";
             // 
             // CoursesForm
             // 
@@ -327,20 +277,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(15, 23, 42);
-            ClientSize = new Size(1124, 981);
+            ClientSize = new Size(982, 652);
+            Controls.Add(lblStudentsHeader);
+            Controls.Add(lblCourseHeader);
+            Controls.Add(dgvStudents);
             Controls.Add(pnlPending);
             Controls.Add(pnlScheduled);
             Controls.Add(pnlTotalCourses);
             Controls.Add(lblSubtitle);
-            Controls.Add(btnViewExam);
             Controls.Add(dgvCourses);
-            Controls.Add(btnAddExam);
-            Controls.Add(btnClear);
-            Controls.Add(btnAddCourse);
-            Controls.Add(txtCourseName);
-            Controls.Add(txtCourseCode);
-            Controls.Add(lblName);
-            Controls.Add(lblCode);
             Controls.Add(lblTitle);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
@@ -353,6 +298,7 @@
             pnlScheduled.PerformLayout();
             pnlPending.ResumeLayout(false);
             pnlPending.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -360,15 +306,7 @@
         #endregion
 
         private Label lblTitle;
-        private Label lblCode;
-        private Label lblName;
-        private TextBox txtCourseCode;
-        private TextBox txtCourseName;
-        private Button btnAddCourse;
-        private Button btnClear;
-        private Button btnAddExam;
         private DataGridView dgvCourses;
-        private Button btnViewExam;
         private Label lblSubtitle;
         private Panel pnlTotalCourses;
         private Label lblTotalCoursesTitle;
@@ -379,5 +317,8 @@
         private Panel pnlPending;
         private Label lblPendingValue;
         private Label lblPendingTitle;
+        private DataGridView dgvStudents;
+        private Label lblCourseHeader;
+        private Label lblStudentsHeader;
     }
 }
