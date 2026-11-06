@@ -8,6 +8,7 @@ namespace ExamSchedulingSystem
     public partial class frmMain : Form
     {
         private Form activeForm = null;
+        internal bool LogoutRequested { get; private set; }
 
         public frmMain()
         {
@@ -18,6 +19,13 @@ namespace ExamSchedulingSystem
             lblScheduleTitle.Font = AppStyle.Heading;
             foreach (var label in new[] { label3, label5, label7, label9 }) label.Font = AppStyle.Section;
             foreach (var label in new[] { label2, label4, label6, label8 }) label.Font = AppStyle.Metric;
+
+            foreach (var exam in SampleData.Exams)
+                dgvSchedulePreview.Rows.Add(exam.Course, exam.Date.ToString("dd MMM yyyy"), $"{exam.Start} - {exam.End}", exam.Room);
+            label2.Text = SampleData.Students().Rows.Count.ToString();
+            label4.Text = SampleData.Exams.Select(exam => exam.Course).Distinct().Count().ToString();
+            label6.Text = "0";
+            label8.Text = SampleData.Exams.Select(exam => exam.Room).Distinct().Count().ToString();
 
             pnlSidebar.AutoScroll = true;
             var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources };
@@ -34,6 +42,23 @@ namespace ExamSchedulingSystem
                 button.TextAlign = ContentAlignment.MiddleLeft;
                 button.TabIndex = i;
             }
+            var logout = new Button
+            {
+                Name = "btnLogout", Text = "Log out", Font = AppStyle.Navigation,
+                ForeColor = Color.White, BackColor = pnlSidebar.BackColor,
+                FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand,
+                Height = buttonHeight, Width = pnlSidebar.ClientSize.Width - inset * 2,
+                Padding = new Padding(inset, 0, 0, 0), TextAlign = ContentAlignment.MiddleLeft,
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom, TabIndex = navigation.Length
+            };
+            logout.FlatAppearance.BorderSize = 0;
+            logout.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 41, 59);
+            pnlSidebar.Controls.Add(logout);
+            void PlaceLogout() => logout.Location = new Point(inset,
+                Math.Max(navigation[^1].Bottom + gap, pnlSidebar.ClientSize.Height - logout.Height - inset));
+            pnlSidebar.Resize += (_, _) => PlaceLogout();
+            PlaceLogout();
+            logout.Click += (_, _) => { LogoutRequested = true; Close(); };
             ResponsiveLayout.Dashboard(this, pnlContent, label1, btnGenerateSchedule,
                 new[] { pnlStudentsCard, pnlCoursesCard, pnlConflictsCard, pnlHallsCard },
                 pnlSchedulePreview, btnViewSchedule, dgvSchedulePreview);

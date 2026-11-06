@@ -30,7 +30,7 @@
         {
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            button1 = new Button();
+            button1 = new BorderlessButton();
             label1 = new Label();
             label2 = new Label();
             linkLabel1 = new LinkLabel();

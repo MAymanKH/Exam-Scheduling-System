@@ -13,6 +13,9 @@ namespace ExamSchedulingSystem
             InitializeComponent();
             AppStyle.Apply(this);
             lblTitle.Font = AppStyle.Heading;
+            foreach (var exam in SampleData.Exams)
+                dgvTimetable.Rows.Add(exam.Course, exam.Date.ToString("dd MMM yyyy"), exam.Start, exam.End, exam.Room, exam.Students);
+            cmbRoom.Items.AddRange(new object[] { "Hall A", "Hall B", "Lab 1" });
 
             ResponsiveLayout.Timetable(this, pnlEdit, lblStatus, btnApply,
                 (lblRoom, cmbRoom), (lblDate, dtpDate), (lblStart, dtpStart), (lblEnd, dtpEnd));

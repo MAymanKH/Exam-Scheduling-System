@@ -46,6 +46,17 @@ namespace ExamSchedulingSystem
                         break;
                     case DataGridView grid:
                         grid.EnableHeadersVisualStyles = false;
+                        grid.BorderStyle = BorderStyle.None;
+                        grid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        grid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                        grid.GridColor = Color.FromArgb(45, 55, 80);
+                        grid.BackgroundColor = Color.FromArgb(17, 24, 39);
+                        grid.DefaultCellStyle.BackColor = Color.FromArgb(17, 24, 39);
+                        grid.DefaultCellStyle.ForeColor = Color.White;
+                        grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(79, 70, 229);
+                        grid.DefaultCellStyle.SelectionForeColor = Color.White;
+                        grid.RowsDefaultCellStyle = new DataGridViewCellStyle();
+                        grid.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(22, 32, 50) };
                         grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 24, 39);
                         grid.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(148, 163, 184);
                         grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(17, 24, 39);
