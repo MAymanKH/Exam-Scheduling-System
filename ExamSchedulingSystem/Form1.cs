@@ -8,6 +8,7 @@ namespace ExamSchedulingSystem
     public partial class frmMain : Form
     {
         private Form? activeForm;
+        private readonly Button btnConflicts = new() { Name = "btnConflicts", Text = "Conflicts" };
         private readonly Dictionary<Button, Form> pages = new();
         private readonly Panel dashboard;
         internal bool LogoutRequested { get; private set; }
@@ -30,11 +31,12 @@ namespace ExamSchedulingSystem
                 dgvSchedulePreview.Rows.Add(exam.Course, exam.Date.ToString("dd MMM yyyy"), $"{exam.Start} - {exam.End}", exam.Room);
             label2.Text = SampleData.Students().Rows.Count.ToString();
             label4.Text = SampleData.Exams.Select(exam => exam.Course).Distinct().Count().ToString();
-            label6.Text = "0";
+            label6.Text = ConflictReport.Find(SampleData.StudentRecords, SampleData.Exams).Count.ToString();
             label8.Text = SampleData.Exams.Select(exam => exam.Room).Distinct().Count().ToString();
 
             pnlSidebar.AutoScroll = true;
-            var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources };
+            pnlSidebar.Controls.Add(btnConflicts);
+            var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources, btnConflicts };
             int inset = ResponsiveLayout.Pixels(this, 12);
             int buttonHeight = ResponsiveLayout.Pixels(this, 44);
             int gap = ResponsiveLayout.Pixels(this, 8);
@@ -73,6 +75,7 @@ namespace ExamSchedulingSystem
             btnStudents.Click += btnStudents_Click;
             btnTimetable.Click += btnTimetable_Click;
             btnResources.Click += btnResources_Click;
+            btnConflicts.Click += (_, _) => OpenPage(() => new ConflictsForm(), btnConflicts);
             btnViewSchedule.Click += btnTimetable_Click;
 
             // Select Dashboard when the program starts
@@ -87,7 +90,8 @@ namespace ExamSchedulingSystem
                 btnDashboard,
                 btnStudents,
                 btnTimetable,
-                btnResources
+                btnResources,
+                btnConflicts
             };
 
             Color normalColor = Color.FromArgb(10, 18, 35);
@@ -160,7 +164,12 @@ namespace ExamSchedulingSystem
 
         private void btnTimetable_Click(object sender, EventArgs e)
         {
-            OpenPage(() => new TimetableForm(), btnTimetable);
+            OpenPage(() =>
+            {
+                var timetable = new TimetableForm();
+                timetable.ViewConflictsRequested += (_, _) => OpenPage(() => new ConflictsForm(), btnConflicts);
+                return timetable;
+            }, btnTimetable);
         }
 
         private void btnResources_Click(object sender, EventArgs e)

@@ -41,6 +41,9 @@ namespace ExamSchedulingSystem
                     exams.Add(new Exam(course, new DateTime(2026, 12, 1).AddDays(day), starts[slot], ends[slot],
                         Rooms[i % Rooms.Length].Name, StudentRecords.Count(s => s.Courses.Contains(course))));
                 }
+            // Deliberate overlaps in the sample timetable for the conflict report.
+            exams[1] = exams[1] with { Start = "10:00", End = "12:00" };
+            exams[3] = exams[3] with { Start = "09:00", End = "11:00" };
             return exams.ToArray();
         }
 

@@ -14,6 +14,7 @@ namespace ExamSchedulingSystem
             pnlHeader = new Panel { Size = new Size(952, 70) };
             lblTitle = new Label();
             btnGenerate = new Button();
+            btnViewConflicts = new Button();
             pnlGridCard = new Panel();
             dgvTimetable = new DataGridView();
             colCourse = new DataGridViewTextBoxColumn();
@@ -28,6 +29,7 @@ namespace ExamSchedulingSystem
             pnlHeader.Height = 70;
             pnlHeader.Controls.Add(lblTitle);
             pnlHeader.Controls.Add(btnGenerate);
+            pnlHeader.Controls.Add(btnViewConflicts);
             lblTitle.AutoSize = true;
             lblTitle.Name = "lblTitle";
             lblTitle.Location = new Point(0, 14);
@@ -40,6 +42,15 @@ namespace ExamSchedulingSystem
             btnGenerate.Location = new Point(782, 12);
             btnGenerate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnGenerate.Click += btnGenerate_Click;
+
+            btnViewConflicts.Name = "btnViewConflicts";
+            btnViewConflicts.Text = "View conflicts";
+            btnViewConflicts.BackColor = Color.FromArgb(79, 70, 229);
+            btnViewConflicts.ForeColor = Color.White;
+            btnViewConflicts.Size = new Size(170, 40);
+            btnViewConflicts.Location = new Point(600, 12);
+            btnViewConflicts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnViewConflicts.Click += (_, _) => ViewConflictsRequested?.Invoke(this, EventArgs.Empty);
 
             pnlGridCard.Name = "pnlGridCard";
             pnlGridCard.Dock = DockStyle.Fill;
@@ -81,6 +92,7 @@ namespace ExamSchedulingSystem
         private Panel pnlHeader;
         private Label lblTitle;
         private Button btnGenerate;
+        private Button btnViewConflicts;
         private Panel pnlGridCard;
         private DataGridView dgvTimetable;
         private DataGridViewTextBoxColumn colCourse;
