@@ -4,7 +4,7 @@ namespace ExamSchedulingSystem
     {
         internal static int Pixels(Control control, int value) => (int)Math.Round(value * control.DeviceDpi / 96d);
 
-        internal static void Fields(Form form, params Control[] controls)
+        internal static TableLayoutPanel Fields(Form form, params Control[] controls)
         {
             form.MinimumSize = new Size(360, 360);
             var viewport = new Panel { Dock = DockStyle.Fill, AutoScroll = true };
@@ -29,13 +29,14 @@ namespace ExamSchedulingSystem
             {
                 int gap = Pixels(form, 24);
                 fields.Width = Math.Max(1, Math.Min(Pixels(form, 520), viewport.ClientSize.Width - gap * 2));
-                foreach (var label in controls.OfType<Label>()) label.MaximumSize = new Size(fields.Width, 0);
+                foreach (var label in controls.OfType<Label>()) label.MaximumSize = new Size(Math.Max(1, fields.Width - fields.Padding.Horizontal), 0);
                 fields.Location = new Point(Math.Max(gap, (viewport.ClientSize.Width - fields.Width) / 2),
                     Math.Max(0, (viewport.ClientSize.Height - fields.Height) / 2) + viewport.AutoScrollPosition.Y);
             }
             viewport.Resize += (_, _) => Arrange();
             fields.SizeChanged += (_, _) => Arrange();
             Arrange();
+            return fields;
         }
 
         internal static void Import(Form form, Label source, TextBox input, Button action, Panel card)

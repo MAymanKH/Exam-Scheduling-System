@@ -9,7 +9,27 @@ namespace ExamSchedulingSystem
         {
             InitializeComponent();
             AppStyle.Apply(this);
-            ResponsiveLayout.Fields(this, label1, textBox1, label2, textBox2, linkLabel1, button1);
+            Text = "Exam Scheduler";
+            StartPosition = FormStartPosition.CenterScreen;
+            var title = new Label
+            {
+                Name = "lblLoginTitle",
+                Text = "Exam Scheduler",
+                Font = AppStyle.Heading,
+                ForeColor = System.Drawing.Color.White,
+                AutoSize = true
+            };
+            var card = ResponsiveLayout.Fields(this, title, label1, textBox1, label2, textBox2, linkLabel1, button1);
+            card.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            card.Padding = new Padding(24);
+            title.Margin = new Padding(0, 0, 0, 24);
+            linkLabel1.Text = "Forgot password?";
+            linkLabel1.Anchor = AnchorStyles.Right;
+            button1.Margin = Padding.Empty;
+            textBox1.TabIndex = 0;
+            textBox2.TabIndex = 1;
+            linkLabel1.TabIndex = 2;
+            button1.TabIndex = 3;
             button1.Click += button1_Click;
             AcceptButton = button1;
             textBox2.UseSystemPasswordChar = true;
