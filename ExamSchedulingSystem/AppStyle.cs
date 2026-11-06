@@ -4,6 +4,8 @@ namespace ExamSchedulingSystem
     {
         internal static readonly Font Body = new("Segoe UI", 10F);
         internal static readonly Font Action = new("Segoe UI", 10F, FontStyle.Bold);
+        internal static readonly Font Navigation = new("Segoe UI", 12F);
+        internal static readonly Font NavigationSelected = new("Segoe UI", 12F, FontStyle.Bold);
         internal static readonly Font Heading = new("Segoe UI", 20F);
         internal static readonly Font Section = new("Segoe UI", 16F);
         internal static readonly Font Metric = new("Segoe UI", 25F, FontStyle.Bold);

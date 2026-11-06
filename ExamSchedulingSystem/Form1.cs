@@ -20,6 +20,20 @@ namespace ExamSchedulingSystem
             foreach (var label in new[] { label2, label4, label6, label8 }) label.Font = AppStyle.Metric;
 
             pnlSidebar.AutoScroll = true;
+            var navigation = new[] { btnDashboard, btnTimetable, btnStudents, btnResources };
+            int inset = ResponsiveLayout.Pixels(this, 12);
+            int buttonHeight = ResponsiveLayout.Pixels(this, 44);
+            int gap = ResponsiveLayout.Pixels(this, 8);
+            int top = lblTitle.Bottom + ResponsiveLayout.Pixels(this, 24);
+            for (int i = 0; i < navigation.Length; i++)
+            {
+                var button = navigation[i];
+                button.SetBounds(inset, top + i * (buttonHeight + gap), pnlSidebar.ClientSize.Width - inset * 2, buttonHeight);
+                button.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+                button.Padding = new Padding(inset, 0, 0, 0);
+                button.TextAlign = ContentAlignment.MiddleLeft;
+                button.TabIndex = i;
+            }
             ResponsiveLayout.Dashboard(this, pnlContent, label1, btnGenerateSchedule,
                 new[] { pnlStudentsCard, pnlCoursesCard, pnlConflictsCard, pnlHallsCard },
                 pnlSchedulePreview, btnViewSchedule, dgvSchedulePreview);
@@ -53,6 +67,7 @@ namespace ExamSchedulingSystem
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.FlatAppearance.BorderSize = 0;
                 btn.ForeColor = Color.White;
+                btn.Font = btn == selectedButton ? AppStyle.NavigationSelected : AppStyle.Navigation;
 
                 // Give the selected button a different color
                 if (btn == selectedButton)
