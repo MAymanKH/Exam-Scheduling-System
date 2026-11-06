@@ -31,8 +31,11 @@ namespace ExamSchedulingSystem
             textBox1 = new TextBox();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            pnlData = new Panel();
+            lblDataTitle = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            pnlData.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
@@ -59,14 +62,21 @@ namespace ExamSchedulingSystem
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.Font = new Font("Segoe UI", 10F);
+            dataGridView1.GridColor = Color.DarkOliveGreen;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.BackgroundColor = Color.FromArgb(17, 24, 39);
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(49, 268);
+            dataGridView1.Location = new Point(15, 97);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(868, 310);
+            dataGridView1.Size = new Size(933, 279);
             dataGridView1.TabIndex = 2;
             // 
             // label1
@@ -80,6 +90,27 @@ namespace ExamSchedulingSystem
             label1.TabIndex = 3;
             label1.Text = "Data source";
             // 
+            //
+            // pnlData
+            //
+            pnlData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlData.BackColor = Color.FromArgb(30, 41, 59);
+            pnlData.Controls.Add(dataGridView1);
+            pnlData.Controls.Add(lblDataTitle);
+            pnlData.Location = new Point(19, 210);
+            pnlData.Name = "pnlData";
+            pnlData.Size = new Size(969, 394);
+            pnlData.TabIndex = 4;
+            //
+            // lblDataTitle
+            //
+            lblDataTitle.AutoSize = true;
+            lblDataTitle.Font = new Font("Segoe UI", 20F);
+            lblDataTitle.ForeColor = Color.White;
+            lblDataTitle.Location = new Point(15, 21);
+            lblDataTitle.Name = "lblDataTitle";
+            lblDataTitle.Text = "Students";
+            lblDataTitle.TabIndex = 0;
             // Student_information
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -87,13 +118,15 @@ namespace ExamSchedulingSystem
             BackColor = Color.FromArgb(17, 24, 39);
             ClientSize = new Size(1007, 630);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(pnlData);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Student_information";
             Text = "Student_information";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            pnlData.ResumeLayout(false);
+            pnlData.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -103,6 +136,8 @@ namespace ExamSchedulingSystem
         private TextBox textBox1;
         private Button button1;
         private DataGridView dataGridView1;
+        private Panel pnlData;
+        private Label lblDataTitle;
         private Label label1;
     }
 }

@@ -29,23 +29,32 @@ namespace Resource_Form
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            pnlData = new Panel();
+            lblDataTitle = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            pnlData.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.Font = new Font("Segoe UI", 10F);
+            dataGridView1.GridColor = Color.DarkOliveGreen;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.BackgroundColor = Color.FromArgb(17, 24, 39);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 341);
+            dataGridView1.Location = new Point(15, 97);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1102, 321);
+            dataGridView1.Size = new Size(1052, 306);
             dataGridView1.TabIndex = 0;
             // 
             // button1
@@ -84,6 +93,27 @@ namespace Resource_Form
             label1.TabIndex = 3;
             label1.Text = "Data source";
             // 
+            //
+            // pnlData
+            //
+            pnlData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlData.BackColor = Color.FromArgb(30, 41, 59);
+            pnlData.Controls.Add(dataGridView1);
+            pnlData.Controls.Add(lblDataTitle);
+            pnlData.Location = new Point(19, 247);
+            pnlData.Name = "pnlData";
+            pnlData.Size = new Size(1088, 421);
+            pnlData.TabIndex = 4;
+            //
+            // lblDataTitle
+            //
+            lblDataTitle.AutoSize = true;
+            lblDataTitle.Font = new Font("Segoe UI", 20F);
+            lblDataTitle.ForeColor = Color.White;
+            lblDataTitle.Location = new Point(15, 21);
+            lblDataTitle.Name = "lblDataTitle";
+            lblDataTitle.Text = "Resources";
+            lblDataTitle.TabIndex = 0;
             // ResourcesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -94,10 +124,12 @@ namespace Resource_Form
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(pnlData);
             Name = "ResourcesForm";
             Text = "Resources Management";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            pnlData.ResumeLayout(false);
+            pnlData.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,6 +137,8 @@ namespace Resource_Form
         #endregion
 
         private DataGridView dataGridView1;
+        private Panel pnlData;
+        private Label lblDataTitle;
         private Button button1;
         private TextBox textBox1;
         private Label label1;
