@@ -11,6 +11,14 @@ namespace ExamSchedulingSystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            using (var login = new log_in_form())
+            {
+                if (login.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
             Application.Run(new frmMain());
         }
     }

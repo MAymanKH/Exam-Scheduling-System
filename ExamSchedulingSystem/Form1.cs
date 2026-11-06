@@ -102,7 +102,7 @@ namespace ExamSchedulingSystem
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            OpenPage(new StudentsForm(), btnStudents);
+            OpenPage(new Student_information(), btnStudents);
         }
 
         private void btnCourses_Click(object sender, EventArgs e)

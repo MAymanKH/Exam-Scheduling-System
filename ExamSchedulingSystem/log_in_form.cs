@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace ExamSchedulingSystem
@@ -8,12 +8,14 @@ namespace ExamSchedulingSystem
         public log_in_form()
         {
             InitializeComponent();
+            button1.Click += button1_Click;
+            AcceptButton = button1;
+            textBox2.UseSystemPasswordChar = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+            DialogResult = DialogResult.OK;
 
         }
         private void textBox1_TextChanged(object sender, EventArgs e) {
