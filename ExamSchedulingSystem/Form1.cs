@@ -19,6 +19,10 @@ namespace ExamSchedulingSystem
             foreach (var label in new[] { label3, label5, label7, label9 }) label.Font = AppStyle.Section;
             foreach (var label in new[] { label2, label4, label6, label8 }) label.Font = AppStyle.Metric;
 
+            pnlSidebar.AutoScroll = true;
+            ResponsiveLayout.Dashboard(this, pnlContent, label1, btnGenerateSchedule,
+                new[] { pnlStudentsCard, pnlCoursesCard, pnlConflictsCard, pnlHallsCard },
+                pnlSchedulePreview, btnViewSchedule, dgvSchedulePreview);
             // Connect the buttons to their click events
             btnStudents.Click += btnStudents_Click;
             btnTimetable.Click += btnTimetable_Click;

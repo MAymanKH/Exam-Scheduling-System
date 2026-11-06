@@ -25,6 +25,10 @@ namespace ExamSchedulingSystem
             lblExamTitle.Font = AppStyle.Heading;
             lblExamTitle.ForeColor = Color.White;
 
+            FormBorderStyle = FormBorderStyle.Sizable;
+            MaximizeBox = true;
+            btnSaveExam.TabStop = true;
+            ResponsiveLayout.Fields(this, lblExamTitle, label1, lblExamDate, dtpExamDate, lblStartTime, dtpStartTime, lblRoom, cmbRoom, btnSaveExam);
             btnSaveExam.FlatAppearance.BorderSize = 0;
             btnSaveExam.FlatAppearance.MouseOverBackColor =
                 Color.FromArgb(59, 130, 246);

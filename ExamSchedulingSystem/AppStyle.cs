@@ -49,6 +49,8 @@ namespace ExamSchedulingSystem
                         grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(17, 24, 39);
                         grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(148, 163, 184);
                         grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                        foreach (DataGridViewColumn column in grid.Columns) column.MinimumWidth = 100;
+                        grid.ColumnAdded += (_, e) => e.Column.MinimumWidth = 100;
                         grid.DefaultCellStyle.Font = Body;
                         grid.ColumnHeadersDefaultCellStyle.Font = Action;
                         grid.ColumnHeadersHeight = 36;

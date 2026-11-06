@@ -14,6 +14,8 @@ namespace ExamSchedulingSystem
             AppStyle.Apply(this);
             lblTitle.Font = AppStyle.Heading;
 
+            ResponsiveLayout.Timetable(this, pnlEdit, lblStatus, btnApply,
+                (lblRoom, cmbRoom), (lblDate, dtpDate), (lblStart, dtpStart), (lblEnd, dtpEnd));
             // These 3 lines are here (not in the Designer) so the Designer
             // still shows a normal form that you can edit.
             // At runtime they make the form sit INSIDE frmMain's panel.

@@ -9,6 +9,7 @@ namespace ExamSchedulingSystem
         {
             InitializeComponent();
             AppStyle.Apply(this);
+            ResponsiveLayout.Fields(this, label1, textBox1, label2, textBox2, linkLabel1, button1);
             button1.Click += button1_Click;
             AcceptButton = button1;
             textBox2.UseSystemPasswordChar = true;
