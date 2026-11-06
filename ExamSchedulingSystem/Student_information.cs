@@ -8,6 +8,10 @@ namespace ExamSchedulingSystem
         public Student_information()
         {
             InitializeComponent();
+            AppStyle.Apply(this);
+            lblDataTitle.Font = AppStyle.Heading;
+            button1.Width = 190;
+            button1.Top = textBox1.Top + (textBox1.Height - button1.Height) / 2;
         }
 
         private void button1_Click_1(object? sender, EventArgs e)

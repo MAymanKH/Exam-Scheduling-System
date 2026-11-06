@@ -12,6 +12,12 @@ namespace ExamSchedulingSystem
         public frmMain()
         {
             InitializeComponent();
+            AppStyle.Apply(this);
+            lblTitle.Font = AppStyle.Section;
+            label1.Font = AppStyle.Heading;
+            lblScheduleTitle.Font = AppStyle.Heading;
+            foreach (var label in new[] { label3, label5, label7, label9 }) label.Font = AppStyle.Section;
+            foreach (var label in new[] { label2, label4, label6, label8 }) label.Font = AppStyle.Metric;
 
             // Connect the buttons to their click events
             btnStudents.Click += btnStudents_Click;

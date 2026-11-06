@@ -1,0 +1,64 @@
+namespace ExamSchedulingSystem
+{
+    internal static class AppStyle
+    {
+        internal static readonly Font Body = new("Segoe UI", 10F);
+        internal static readonly Font Action = new("Segoe UI", 10F, FontStyle.Bold);
+        internal static readonly Font Heading = new("Segoe UI", 20F);
+        internal static readonly Font Section = new("Segoe UI", 16F);
+        internal static readonly Font Metric = new("Segoe UI", 25F, FontStyle.Bold);
+        internal const int ButtonHeight = 40;
+
+        internal static void Apply(Form form)
+        {
+            form.SuspendLayout();
+            var scaling = form.AutoScaleMode;
+            // Preserve designer geometry while normalizing fonts; subsequent DPI scaling still applies.
+            form.AutoScaleMode = AutoScaleMode.None;
+            form.Font = Body;
+            ApplyChildren(form);
+            form.AutoScaleDimensions = form.CurrentAutoScaleDimensions;
+            form.AutoScaleMode = scaling;
+            form.ResumeLayout(true);
+        }
+
+        private static void ApplyChildren(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                control.Font = Body;
+                switch (control)
+                {
+                    case Button button:
+                        button.Font = Action;
+                        button.AutoSize = false;
+                        button.Height = ButtonHeight;
+                        button.FlatStyle = FlatStyle.Flat;
+                        button.FlatAppearance.BorderSize = 0;
+                        button.Cursor = Cursors.Hand;
+                        break;
+                    case LinkLabel link:
+                        link.LinkColor = Color.FromArgb(165, 180, 252);
+                        link.ActiveLinkColor = Color.White;
+                        link.VisitedLinkColor = link.LinkColor;
+                        break;
+                    case DataGridView grid:
+                        grid.EnableHeadersVisualStyles = false;
+                        grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 24, 39);
+                        grid.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(148, 163, 184);
+                        grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(17, 24, 39);
+                        grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(148, 163, 184);
+                        grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                        grid.DefaultCellStyle.Font = Body;
+                        grid.ColumnHeadersDefaultCellStyle.Font = Action;
+                        grid.ColumnHeadersHeight = 36;
+                        grid.RowTemplate.Height = 34;
+                        grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                        grid.DefaultCellStyle.Padding = new Padding(4);
+                        break;
+                }
+                ApplyChildren(control);
+            }
+        }
+    }
+}

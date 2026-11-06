@@ -8,6 +8,7 @@ namespace ExamSchedulingSystem
         public log_in_form()
         {
             InitializeComponent();
+            AppStyle.Apply(this);
             button1.Click += button1_Click;
             AcceptButton = button1;
             textBox2.UseSystemPasswordChar = true;

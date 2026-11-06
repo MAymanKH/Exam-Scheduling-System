@@ -8,6 +8,10 @@ namespace Resource_Form
         public ResourcesForm()
         {
             InitializeComponent();
+            ExamSchedulingSystem.AppStyle.Apply(this);
+            lblDataTitle.Font = ExamSchedulingSystem.AppStyle.Heading;
+            button1.Width = 190;
+            button1.Top = textBox1.Top + (textBox1.Height - button1.Height) / 2;
         }
 
         private void button1_Click(object? sender, EventArgs e)

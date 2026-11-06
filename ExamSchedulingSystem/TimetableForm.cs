@@ -10,7 +10,9 @@ namespace ExamSchedulingSystem
     {
         public TimetableForm()
         {
-            InitializeComponent();   // builds everything from the Designer file
+            InitializeComponent();
+            AppStyle.Apply(this);
+            lblTitle.Font = AppStyle.Heading;
 
             // These 3 lines are here (not in the Designer) so the Designer
             // still shows a normal form that you can edit.

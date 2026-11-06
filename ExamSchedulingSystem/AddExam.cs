@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +20,10 @@ namespace ExamSchedulingSystem
         public AddExamForm()
         {
             InitializeComponent();
+            AppStyle.Apply(this);
+            lblTitle.Visible = false;
+            lblExamTitle.Font = AppStyle.Heading;
+            lblExamTitle.ForeColor = Color.White;
 
             btnSaveExam.FlatAppearance.BorderSize = 0;
             btnSaveExam.FlatAppearance.MouseOverBackColor =
